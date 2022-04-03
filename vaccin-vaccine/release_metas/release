@@ -1,0 +1,11 @@
+code.language=java
+
+build.jdk.version=
+
+build.tools.maven.version=
+
+build.tools.maven.settings=
+
+build.output=kmeans-start/target/kmeans
+
+build.tools.docker.args=--build-arg APP_NAME=${APP_NAME}
