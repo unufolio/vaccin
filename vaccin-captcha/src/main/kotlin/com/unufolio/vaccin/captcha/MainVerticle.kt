@@ -1,4 +1,4 @@
-package com.unufolio.vaccin.vaccin_captcha
+package com.unufolio.vaccin.captcha
 
 import io.vertx.core.AbstractVerticle
 import io.vertx.core.Promise

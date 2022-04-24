@@ -24,7 +24,7 @@ repositories {
 val vertxVersion = "4.3.0-SNAPSHOT"
 val junitJupiterVersion = "5.7.0"
 
-val mainVerticleName = "com.unufolio.vaccin.vaccin_captcha.MainVerticle"
+val mainVerticleName = "com.unufolio.vaccin.captcha.MainVerticle"
 val launcherClassName = "io.vertx.core.Launcher"
 
 val watchForChange = "src/**/*"
@@ -39,12 +39,14 @@ dependencies {
   implementation("io.vertx:vertx-web")
   implementation("io.vertx:vertx-lang-kotlin")
   implementation(kotlin("stdlib-jdk8"))
+  // Anji Captcha
+  implementation("com.anji-plus:captcha:1.3.0")
   testImplementation("io.vertx:vertx-junit5")
   testImplementation("org.junit.jupiter:junit-jupiter:$junitJupiterVersion")
 }
 
 val compileKotlin: KotlinCompile by tasks
-compileKotlin.kotlinOptions.jvmTarget = "11"
+compileKotlin.kotlinOptions.jvmTarget = "17"
 
 tasks.withType<ShadowJar> {
   archiveClassifier.set("fat")

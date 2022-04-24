@@ -1,8 +1,11 @@
-package com.unufolio.vaccin.vaccine
+package com.unufolio.vaccin.vaccine.controller
 
 import com.unufolio.common.ResultEntity
+import com.unufolio.vaccin.vaccine.service.VaccineService
+import org.springframework.web.bind.annotation.DeleteMapping
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
+import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 import vaccin.vaccine.dataobject.VaccineDO
@@ -13,14 +16,30 @@ import vaccin.vaccine.dataobject.VaccineDO
  */
 @RestController
 @RequestMapping("vaccines")
-class VaccineController {
+class VaccineController(
+    val vaccineService: VaccineService
+) {
+
+    @PostMapping("")
+    fun create() {
+        vaccineService.saveVaccine()
+    }
 
     @GetMapping("code/{code}")
     fun retrieve(@PathVariable("code") code: String): ResultEntity<VaccineDO> {
+
+        val retrieve = vaccineService.retrieve()
+        print(retrieve)
+
         val resultEntity = ResultEntity.succeed(VaccineDO())
         val data = resultEntity.data;
         println(data)
         return resultEntity
+    }
+
+    @DeleteMapping()
+    fun delete() {
+        vaccineService.delete()
     }
 
     @GetMapping("list")

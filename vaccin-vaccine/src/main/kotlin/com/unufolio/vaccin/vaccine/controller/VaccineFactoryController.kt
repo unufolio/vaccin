@@ -1,4 +1,4 @@
-package com.unufolio.vaccin.vaccine
+package com.unufolio.vaccin.vaccine.controller
 
 /**
  * @author Unufolio unufolio@gmail.com

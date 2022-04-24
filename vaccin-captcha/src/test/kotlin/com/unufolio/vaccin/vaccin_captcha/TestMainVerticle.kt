@@ -1,5 +1,6 @@
 package com.unufolio.vaccin.vaccin_captcha
 
+import com.unufolio.vaccin.captcha.MainVerticle
 import io.vertx.core.Vertx
 import io.vertx.junit5.VertxExtension
 import io.vertx.junit5.VertxTestContext
