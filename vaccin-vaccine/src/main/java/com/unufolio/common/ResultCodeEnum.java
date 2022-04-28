@@ -7,8 +7,8 @@ package com.unufolio.common;
 public enum ResultCodeEnum implements IResultCode {
 
     // Success
-    SUCCESS("120000", "success"),
-    ERROR("150000", "error"),
+    SUCCESS("20000", "success"),
+    ERROR("50000", "error"),
     ;
     private final String value;
     private final String message;

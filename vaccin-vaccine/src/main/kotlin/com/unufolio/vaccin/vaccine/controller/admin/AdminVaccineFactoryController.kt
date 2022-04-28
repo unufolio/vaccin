@@ -10,7 +10,7 @@ import jakarta.validation.Valid
 import org.springframework.web.bind.annotation.*
 
 /**
- * @author yeke yeke@healthych.com
+ * @author Unufolio unufolio@gmail.com
  * @since 2022/04/28
  */
 @RestController("admin/vaccine-factories")

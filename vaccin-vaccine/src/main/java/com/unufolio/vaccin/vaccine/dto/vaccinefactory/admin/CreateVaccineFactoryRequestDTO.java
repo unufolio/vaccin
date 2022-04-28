@@ -3,12 +3,12 @@ package com.unufolio.vaccin.vaccine.dto.vaccinefactory.admin;
 import jakarta.validation.constraints.NotBlank;
 
 /**
- * @author yeke yeke@healthych.com
+ * @author Unufolio unufolio@gmail.com
  * @since 2022/04/28
  */
 public class CreateVaccineFactoryRequestDTO {
 
-    @NotBlank
+    @NotBlank(message = "VACCINE_FACTORY_CODE_NOT_BLANK")
     private String code;
     @NotBlank
     private String name;
