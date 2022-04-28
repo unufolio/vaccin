@@ -1,6 +1,7 @@
 package com.unufolio.vaccin.vaccine.service.impl
 
 import com.unufolio.vaccin.vaccine.dal.repository.VaccineFactoryRepository
+import com.unufolio.vaccin.vaccine.dataobject.VaccineFactoryDO
 import com.unufolio.vaccin.vaccine.service.VaccineFactoryService
 import org.springframework.stereotype.Service
 
@@ -10,8 +11,12 @@ import org.springframework.stereotype.Service
  */
 @Service
 class VaccineFactoryServiceImpl(val vaccineFactoryRepository: VaccineFactoryRepository) : VaccineFactoryService {
-    override fun create() {
-        TODO("Not yet implemented")
+    override fun create(vaccineFactoryDO: VaccineFactoryDO) {
+        if (codeExist(vaccineFactoryDO)) {
+            println("code exist")
+        } else {
+            vaccineFactoryRepository.save(vaccineFactoryDO)
+        }
     }
 
     override fun retrieve() {
@@ -32,6 +37,11 @@ class VaccineFactoryServiceImpl(val vaccineFactoryRepository: VaccineFactoryRepo
 
     override fun delete() {
         TODO("Not yet implemented")
+    }
+
+    private fun codeExist(vaccineFactoryDO: VaccineFactoryDO): Boolean {
+        val query = VaccineFactoryDO().apply { code = vaccineFactoryDO.code };
+        return vaccineFactoryRepository.selectFirst(query) != null;
     }
 
 }

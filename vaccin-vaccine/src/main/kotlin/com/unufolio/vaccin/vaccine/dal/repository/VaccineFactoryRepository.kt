@@ -8,11 +8,13 @@ import com.unufolio.vaccin.vaccine.dataobject.VaccineFactoryDO
  */
 interface VaccineFactoryRepository {
 
-    fun delete(vaccineFactoryDO: VaccineFactoryDO): Int
-
     fun save(vaccineFactoryDO: VaccineFactoryDO): Int
 
+    fun delete(vaccineFactoryDO: VaccineFactoryDO): Int
+
     fun update(vaccineFactoryDO: VaccineFactoryDO): Int
+
+    fun selectFirst(vaccineFactoryDO: VaccineFactoryDO): VaccineFactoryDO?
 
     fun list(vaccineFactoryDO: VaccineFactoryDO): List<VaccineFactoryDO>
 }

@@ -19,7 +19,7 @@
         <mysql.version>8.0.28</mysql.version>
         <mybatis.version>2.2.2</mybatis.version>
         <mybatis-plus.version>3.5.1</mybatis-plus.version>
-        <orika.version>1.5.4</orika.version>
+        <commons-lang3.version>3.12.0</commons-lang3.version>
         <unufolio-common.version>1.0-SNAPSHOT</unufolio-common.version>
     </properties>
     <dependencies>
@@ -58,6 +58,13 @@
             <version>${mybatis-plus.version}</version>
         </dependency>
 
+        <!-- commons-lang3 -->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>${commons-lang3.version}</version>
+        </dependency>
+
         <!-- kotlin -->
         <dependency>
             <groupId>com.fasterxml.jackson.module</groupId>
@@ -70,13 +77,6 @@
         <dependency>
             <groupId>org.jetbrains.kotlin</groupId>
             <artifactId>kotlin-stdlib-jdk8</artifactId>
-        </dependency>
-
-        <!-- orika -->
-        <dependency>
-            <groupId>ma.glasnost.orika</groupId>
-            <artifactId>orika-core</artifactId>
-            <version>${orika.version}</version>
         </dependency>
 
         <dependency>

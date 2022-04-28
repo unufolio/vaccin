@@ -2,8 +2,8 @@ package com.unufolio.vaccin.vaccine.dal.repository.impl
 
 import com.unufolio.vaccin.vaccine.dal.mapper.VaccineMapper
 import com.unufolio.vaccin.vaccine.dal.repository.VaccineRepository
+import com.unufolio.vaccin.vaccine.dataobject.VaccineDO
 import org.springframework.stereotype.Repository
-import vaccin.vaccine.dataobject.VaccineDO
 
 /**
  * @author Unufolio unufolio@gmail.com

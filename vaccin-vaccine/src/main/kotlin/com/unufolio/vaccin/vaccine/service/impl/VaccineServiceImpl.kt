@@ -1,9 +1,9 @@
 package com.unufolio.vaccin.vaccine.service.impl
 
 import com.unufolio.vaccin.vaccine.dal.repository.VaccineRepository
+import com.unufolio.vaccin.vaccine.dataobject.VaccineDO
 import com.unufolio.vaccin.vaccine.service.VaccineService
 import org.springframework.stereotype.Service
-import vaccin.vaccine.dataobject.VaccineDO
 
 /**
  * @author Unufolio unufolio@gmail.com

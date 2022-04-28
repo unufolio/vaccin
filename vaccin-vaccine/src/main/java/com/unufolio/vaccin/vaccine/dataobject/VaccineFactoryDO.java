@@ -1,9 +1,12 @@
 package com.unufolio.vaccin.vaccine.dataobject;
 
+import com.baomidou.mybatisplus.annotation.TableName;
+
 /**
  * @author Unufolio unufolio@gmail.com
  * @since 2022/04/24
  */
+@TableName("vaccine_factory")
 public class VaccineFactoryDO extends BaseEntity {
 
     private String code;

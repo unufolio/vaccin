@@ -4,8 +4,9 @@ import com.unufolio.common.ResultEntity
 import com.unufolio.vaccin.vaccine.dataobject.VaccineFactoryDO
 import com.unufolio.vaccin.vaccine.dto.vaccinefactory.admin.CreateVaccineFactoryRequestDTO
 import com.unufolio.vaccin.vaccine.dto.vaccinefactory.admin.UpdateVaccineFactoryRequestDTO
-import com.unufolio.vaccin.vaccine.objectmapper.VaccineFactoryMapping
+import com.unufolio.vaccin.vaccine.objectmapping.VaccineFactoryMapping
 import com.unufolio.vaccin.vaccine.service.VaccineFactoryService
+import jakarta.validation.Valid
 import org.springframework.web.bind.annotation.*
 
 /**
@@ -15,14 +16,22 @@ import org.springframework.web.bind.annotation.*
 @RestController("admin/vaccine-factories")
 class AdminVaccineFactoryController(
     private val vaccineFactoryService: VaccineFactoryService,
-    private val vaccineFactoryMapping: VaccineFactoryMapping
 ) {
 
     @PostMapping()
     fun create(
-        @RequestBody requestDTO: CreateVaccineFactoryRequestDTO
+        @RequestBody @Valid requestDTO: CreateVaccineFactoryRequestDTO
     ): ResultEntity<Void> {
-        val vaccineFactoryDO = vaccineFactoryMapping.map(requestDTO, VaccineFactoryDO::class.java)
+        val vaccineFactoryDO = VaccineFactoryDO().apply {
+            code = requestDTO.code
+            name = requestDTO.name
+            nameEn = requestDTO.nameEn
+            namePinyin = requestDTO.namePinyin
+            shortName = requestDTO.shortName
+            shortNameEn = requestDTO.shortNameEn
+            shortNamePinyin = requestDTO.shortNamePinyin
+        }
+        vaccineFactoryService.create(vaccineFactoryDO)
         return ResultEntity.succeed();
     }
 
