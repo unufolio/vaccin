@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 
+import java.time.Instant;
 import java.time.LocalDateTime;
 
 /**
@@ -21,12 +22,12 @@ public class BaseEntity {
      * 创建时间
      */
     @TableField(fill = FieldFill.INSERT)
-    private LocalDateTime createTime;
+    private Instant createTime;
     /**
      * 创建时间
      */
     @TableField(fill = FieldFill.INSERT_UPDATE)
-    private LocalDateTime modifyTime;
+    private Instant modifyTime;
     /**
      * 是否删除
      */
@@ -40,7 +41,7 @@ public class BaseEntity {
         this.id = id;
     }
 
-    public LocalDateTime getCreateTime() {
+    public Instant getCreateTime() {
         return createTime;
     }
 
@@ -48,7 +49,7 @@ public class BaseEntity {
         this.createTime = createTime;
     }
 
-    public LocalDateTime getModifyTime() {
+    public Instant getModifyTime() {
         return modifyTime;
     }
 
