@@ -22,15 +22,7 @@ class AdminVaccineFactoryController(
     fun create(
         @RequestBody @Valid requestDTO: CreateVaccineFactoryRequestDTO
     ): ResultEntity<Void> {
-        val vaccineFactoryDO = VaccineFactoryDO().apply {
-            code = requestDTO.code
-            name = requestDTO.name
-            nameEn = requestDTO.nameEn
-            namePinyin = requestDTO.namePinyin
-            shortName = requestDTO.shortName
-            shortNameEn = requestDTO.shortNameEn
-            shortNamePinyin = requestDTO.shortNamePinyin
-        }
+        val vaccineFactoryDO = VaccineFactoryMapping.fromCreateDTOToDataObject(requestDTO)
         vaccineFactoryService.create(vaccineFactoryDO)
         return ResultEntity.succeed();
     }
