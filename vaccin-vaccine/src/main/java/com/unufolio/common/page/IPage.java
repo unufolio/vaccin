@@ -8,7 +8,7 @@ import java.util.stream.Collectors;
  * @author Unufolio unufolio@gmail.com
  * @since 2022/03/24
  */
-public interface IPageable<E> {
+public interface IPage<E> {
 
     long getPageSize();
 
@@ -31,9 +31,9 @@ public interface IPageable<E> {
     void setRows(List<E> rows);
 
     @SuppressWarnings("unchecked")
-    default <U> IPageable<U> convert(Function<? super E, ? extends U> converter) {
+    default <U> IPage<U> convert(Function<? super E, ? extends U> converter) {
         List<U> collect = this.getRows().stream().map(converter).collect(Collectors.toList());
-        ((IPageable<U>) this).setRows(collect);
-        return ((IPageable<U>) this);
+        ((IPage<U>) this).setRows(collect);
+        return ((IPage<U>) this);
     }
 }

@@ -3,14 +3,12 @@ package com.unufolio.common.page;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-import java.util.function.Function;
-import java.util.stream.Collectors;
 
 /**
  * @author Unufolio unufolio@gmail.com
  * @since 2022/03/24
  */
-public class SimplePage<T> implements IPageable<T> {
+public class SimplePage<T> implements IPage<T> {
 
     protected long pageSize;
     protected long pageNum;
@@ -113,14 +111,14 @@ public class SimplePage<T> implements IPageable<T> {
             return this;
         }
 
-        public <T> IPageable<T> rows(List<T> rows) {
+        public <T> IPage<T> rows(List<T> rows) {
             if (Objects.isNull(rows)) {
                 rows = new ArrayList<>();
             }
             return new SimplePage<>(pageSize, pageNum, total, pages, rows);
         }
 
-        public <T> IPageable<T> build() {
+        public <T> IPage<T> build() {
             return new SimplePage<>(pageSize, pageNum, total, pages, new ArrayList<>());
         }
 

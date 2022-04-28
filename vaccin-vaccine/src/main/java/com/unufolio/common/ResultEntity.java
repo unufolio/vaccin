@@ -1,10 +1,9 @@
 package com.unufolio.common;
 
-import com.unufolio.common.page.ICursorPageable;
-import com.unufolio.common.page.IPageable;
+import com.unufolio.common.page.ICursorPage;
+import com.unufolio.common.page.IPage;
 
 import java.time.Instant;
-import java.time.LocalDateTime;
 import java.util.Collection;
 
 /**
@@ -197,7 +196,7 @@ public class ResultEntity<T> {
                 .data(data);
     }
 
-    public static <T> ResultEntity<IPageable<T>> succeed(IPageable<T> page) {
+    public static <T> ResultEntity<IPage<T>> succeed(IPage<T> page) {
         return ResultEntity.builder()
                 .success(true)
                 .code(ResultCodeEnum.SUCCESS.value())
@@ -206,7 +205,7 @@ public class ResultEntity<T> {
                 .data(page);
     }
 
-    public static <T> ResultEntity<IPageable<T>> succeed(ICursorPageable<T> page) {
+    public static <T> ResultEntity<IPage<T>> succeed(ICursorPage<T> page) {
         return ResultEntity.builder()
                 .success(true)
                 .code(ResultCodeEnum.SUCCESS.value())
@@ -215,11 +214,11 @@ public class ResultEntity<T> {
                 .data(page);
     }
 
-    public static <T> ResultEntity<IPageable<T>> page(IPageable<T> page) {
+    public static <T> ResultEntity<IPage<T>> page(IPage<T> page) {
         return succeed(page);
     }
 
-    public static <T> ResultEntity<IPageable<T>> page(ICursorPageable<T> page) {
+    public static <T> ResultEntity<IPage<T>> page(ICursorPage<T> page) {
         return succeed(page);
     }
 

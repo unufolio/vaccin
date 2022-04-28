@@ -3,14 +3,12 @@ package com.unufolio.common.page;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-import java.util.function.Function;
-import java.util.stream.Collectors;
 
 /**
  * @author Unufolio unufolio@gmail.com
  * @since 2022/03/24
  */
-public class CursorPage<T> extends SimplePage<T> implements ICursorPageable<T> {
+public class CursorPage<T> extends SimplePage<T> implements ICursorPage<T> {
 
     private String cursor;
 
@@ -73,14 +71,14 @@ public class CursorPage<T> extends SimplePage<T> implements ICursorPageable<T> {
             return this;
         }
 
-        public <T> ICursorPageable<T> rows(List<T> rows) {
+        public <T> ICursorPage<T> rows(List<T> rows) {
             if (Objects.isNull(rows)) {
                 rows = new ArrayList<>();
             }
             return new CursorPage<>(pageSize, pageNum, total, pages, cursor, rows);
         }
 
-        public <T> ICursorPageable<T> build() {
+        public <T> ICursorPage<T> build() {
             return new CursorPage<>(pageSize, pageNum, total, pages, cursor, new ArrayList<>());
         }
     }
