@@ -1,4 +1,4 @@
-package com.unufolio.vaccin.vaccine.dto.vaccinefactory;
+package com.unufolio.vaccin.vaccine.dto.vaccinefactory.admin;
 
 /**
  * @author yeke yeke@healthych.com

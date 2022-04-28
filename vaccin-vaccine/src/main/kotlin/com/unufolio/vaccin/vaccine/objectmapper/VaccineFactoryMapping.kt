@@ -1,7 +1,7 @@
 package com.unufolio.vaccin.vaccine.objectmapper
 
 import com.unufolio.vaccin.vaccine.dataobject.VaccineFactoryDO
-import com.unufolio.vaccin.vaccine.dto.vaccinefactory.CreateVaccineFactoryRequestDTO
+import com.unufolio.vaccin.vaccine.dto.vaccinefactory.admin.CreateVaccineFactoryRequestDTO
 import ma.glasnost.orika.MapperFactory
 import ma.glasnost.orika.impl.ConfigurableMapper
 import org.springframework.context.annotation.Configuration

@@ -2,8 +2,8 @@ package com.unufolio.vaccin.vaccine.controller.admin
 
 import com.unufolio.common.ResultEntity
 import com.unufolio.vaccin.vaccine.dataobject.VaccineFactoryDO
-import com.unufolio.vaccin.vaccine.dto.vaccinefactory.CreateVaccineFactoryRequestDTO
-import com.unufolio.vaccin.vaccine.dto.vaccinefactory.UpdateVaccineFactoryRequestDTO
+import com.unufolio.vaccin.vaccine.dto.vaccinefactory.admin.CreateVaccineFactoryRequestDTO
+import com.unufolio.vaccin.vaccine.dto.vaccinefactory.admin.UpdateVaccineFactoryRequestDTO
 import com.unufolio.vaccin.vaccine.objectmapper.VaccineFactoryMapping
 import com.unufolio.vaccin.vaccine.service.VaccineFactoryService
 import org.springframework.web.bind.annotation.*
