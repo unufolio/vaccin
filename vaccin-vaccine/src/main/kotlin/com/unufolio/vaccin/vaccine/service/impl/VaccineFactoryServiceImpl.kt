@@ -10,8 +10,27 @@ import org.springframework.stereotype.Service
  */
 @Service
 class VaccineFactoryServiceImpl(val vaccineFactoryRepository: VaccineFactoryRepository) : VaccineFactoryService {
+    override fun create() {
+        TODO("Not yet implemented")
+    }
 
-    override fun deleteVaccineFactory() {
+    override fun retrieve() {
+        TODO("Not yet implemented")
+    }
+
+    override fun update() {
+        TODO("Not yet implemented")
+    }
+
+    override fun online() {
+        TODO("Not yet implemented")
+    }
+
+    override fun offline() {
+        TODO("Not yet implemented")
+    }
+
+    override fun delete() {
         TODO("Not yet implemented")
     }
 

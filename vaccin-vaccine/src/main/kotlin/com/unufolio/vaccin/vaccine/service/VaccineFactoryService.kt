@@ -6,5 +6,15 @@ package com.unufolio.vaccin.vaccine.service
  */
 interface VaccineFactoryService {
 
-    fun deleteVaccineFactory();
+    fun create();
+
+    fun retrieve();
+
+    fun update();
+
+    fun online();
+
+    fun offline();
+
+    fun delete();
 }

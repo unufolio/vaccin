@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*
  * @author yeke yeke@healthych.com
  * @since 2022/04/28
  */
+@RestController("admin/vaccine-factories")
 class AdminVaccineFactoryController(
     private val vaccineFactoryService: VaccineFactoryService,
     private val vaccineFactoryMapping: VaccineFactoryMapping
@@ -25,21 +26,26 @@ class AdminVaccineFactoryController(
         return ResultEntity.succeed();
     }
 
-    @PostMapping("/{code}:offline")
+    @GetMapping("{code}")
+    fun retrieve(): ResultEntity<Void> {
+        return ResultEntity.succeed();
+    }
+
+    @PostMapping("{code}:offline")
     fun offline(
         @PathVariable("code") code: String
     ): ResultEntity<Void> {
         return ResultEntity.succeed();
     }
 
-    @PostMapping("/{code}:online")
+    @PostMapping("{code}:online")
     fun online(
         @PathVariable("code") code: String
     ): ResultEntity<Void> {
         return ResultEntity.succeed();
     }
 
-    @PutMapping("/{code}")
+    @PutMapping("{code}")
     fun update(
         @PathVariable("code") code: String,
         @RequestBody requestDTO: UpdateVaccineFactoryRequestDTO
@@ -47,7 +53,7 @@ class AdminVaccineFactoryController(
         return ResultEntity.succeed();
     }
 
-    @DeleteMapping("/{code}")
+    @DeleteMapping("{code}")
     fun delete(
         @PathVariable("code") code: String
     ): ResultEntity<Void> {

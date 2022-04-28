@@ -3,7 +3,7 @@ package com.unufolio.vaccin.vaccine.dal
 import com.baomidou.mybatisplus.core.handlers.MetaObjectHandler
 import org.apache.ibatis.reflection.MetaObject
 import org.springframework.stereotype.Component
-import java.time.LocalDateTime
+import java.time.Instant
 
 
 /**
@@ -15,21 +15,21 @@ class TimeMetaObjectHandler : MetaObjectHandler {
     override fun insertFill(metaObject: MetaObject?) {
         this.strictInsertFill(
             metaObject, "createTime",
-            { LocalDateTime.now() },
-            LocalDateTime::class.java
+            { Instant.now() },
+            Instant::class.java
         )
         this.strictInsertFill(
             metaObject, "modifyTime",
-            { LocalDateTime.now() },
-            LocalDateTime::class.java
+            { Instant.now() },
+            Instant::class.java
         )
     }
 
     override fun updateFill(metaObject: MetaObject?) {
         this.strictUpdateFill(
             metaObject, "modifyTime",
-            { LocalDateTime.now() },
-            LocalDateTime::class.java
+            { Instant.now() },
+            Instant::class.java
         )
     }
 }
