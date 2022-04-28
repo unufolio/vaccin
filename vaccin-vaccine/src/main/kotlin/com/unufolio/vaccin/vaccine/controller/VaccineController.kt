@@ -1,6 +1,7 @@
 package com.unufolio.vaccin.vaccine.controller
 
 import com.unufolio.common.ResultEntity
+import com.unufolio.vaccin.vaccine.dataobject.VaccineDO
 import com.unufolio.vaccin.vaccine.service.VaccineService
 import org.springframework.web.bind.annotation.DeleteMapping
 import org.springframework.web.bind.annotation.GetMapping
@@ -8,7 +9,6 @@ import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
-import vaccin.vaccine.dataobject.VaccineDO
 
 /**
  * @author Unufolio unufolio@gmail.com

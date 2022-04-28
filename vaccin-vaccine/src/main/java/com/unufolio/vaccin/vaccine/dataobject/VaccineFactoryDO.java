@@ -1,14 +1,16 @@
-package vaccin.vaccine.dataobject;
+package com.unufolio.vaccin.vaccine.dataobject;
 
 /**
  * @author Unufolio unufolio@gmail.com
  * @since 2022/04/24
  */
-public class VaccineFactoryDO extends BaseEntity{
+public class VaccineFactoryDO extends BaseEntity {
 
     private String code;
     private String name;
+    private String nameEn;
     private String shortName;
+    private String shortNameEn;
     private String namePinyin;
     private String shortNamePinyin;
 
@@ -31,12 +33,28 @@ public class VaccineFactoryDO extends BaseEntity{
         this.name = name;
     }
 
+    public String getNameEn() {
+        return nameEn;
+    }
+
+    public void setNameEn(String nameEn) {
+        this.nameEn = nameEn;
+    }
+
     public String getShortName() {
         return shortName;
     }
 
     public void setShortName(String shortName) {
         this.shortName = shortName;
+    }
+
+    public String getShortNameEn() {
+        return shortNameEn;
+    }
+
+    public void setShortNameEn(String shortNameEn) {
+        this.shortNameEn = shortNameEn;
     }
 
     public String getNamePinyin() {
@@ -60,7 +78,9 @@ public class VaccineFactoryDO extends BaseEntity{
         return "VaccineFactoryDO{" +
                 "code='" + code + '\'' +
                 ", name='" + name + '\'' +
+                ", nameEn='" + nameEn + '\'' +
                 ", shortName='" + shortName + '\'' +
+                ", shortNameEn='" + shortNameEn + '\'' +
                 ", namePinyin='" + namePinyin + '\'' +
                 ", shortNamePinyin='" + shortNamePinyin + '\'' +
                 "} " + super.toString();

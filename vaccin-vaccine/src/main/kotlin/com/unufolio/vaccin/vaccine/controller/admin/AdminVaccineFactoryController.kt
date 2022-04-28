@@ -1,4 +1,4 @@
-package com.unufolio.vaccin.vaccine.controller
+package com.unufolio.vaccin.vaccine.controller.admin
 
 import com.unufolio.common.ResultEntity
 import com.unufolio.vaccin.vaccine.dataobject.VaccineFactoryDO
@@ -9,13 +9,12 @@ import com.unufolio.vaccin.vaccine.service.VaccineFactoryService
 import org.springframework.web.bind.annotation.*
 
 /**
- * @author Unufolio unufolio@gmail.com
- * @since 2022/03/29
+ * @author yeke yeke@healthych.com
+ * @since 2022/04/28
  */
-@RestController("vaccine-factories")
-class VaccineFactoryController(
-    val vaccineFactoryService: VaccineFactoryService,
-    val vaccineFactoryMapping: VaccineFactoryMapping
+class AdminVaccineFactoryController(
+    private val vaccineFactoryService: VaccineFactoryService,
+    private val vaccineFactoryMapping: VaccineFactoryMapping
 ) {
 
     @PostMapping()

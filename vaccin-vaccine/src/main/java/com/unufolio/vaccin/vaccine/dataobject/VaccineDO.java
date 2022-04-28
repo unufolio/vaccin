@@ -1,8 +1,9 @@
-package vaccin.vaccine.dataobject;
+package com.unufolio.vaccin.vaccine.dataobject;
 
 import com.baomidou.mybatisplus.annotation.FieldStrategy;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
+import com.unufolio.vaccin.vaccine.dataobject.BaseEntity;
 
 /**
  * @author Unufolio unufolio@gmail.com

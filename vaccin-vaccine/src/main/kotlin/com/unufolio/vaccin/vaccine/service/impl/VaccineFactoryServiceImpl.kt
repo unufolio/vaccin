@@ -11,4 +11,8 @@ import org.springframework.stereotype.Service
 @Service
 class VaccineFactoryServiceImpl(val vaccineFactoryRepository: VaccineFactoryRepository) : VaccineFactoryService {
 
+    override fun deleteVaccineFactory() {
+        TODO("Not yet implemented")
+    }
+
 }

@@ -1,4 +1,4 @@
-package vaccin.vaccine.dataobject;
+package com.unufolio.vaccin.vaccine.dataobject;
 
 /**
  * @author Unufolio unufolio@gmail.com

@@ -14,12 +14,12 @@ import java.time.LocalDateTime
 class TimeMetaObjectHandler : MetaObjectHandler {
     override fun insertFill(metaObject: MetaObject?) {
         this.strictInsertFill(
-            metaObject, "createdAt",
+            metaObject, "createTime",
             { LocalDateTime.now() },
             LocalDateTime::class.java
         )
         this.strictInsertFill(
-            metaObject, "modifiedAt",
+            metaObject, "modifyTime",
             { LocalDateTime.now() },
             LocalDateTime::class.java
         )
@@ -27,7 +27,7 @@ class TimeMetaObjectHandler : MetaObjectHandler {
 
     override fun updateFill(metaObject: MetaObject?) {
         this.strictUpdateFill(
-            metaObject, "modifiedAt",
+            metaObject, "modifyTime",
             { LocalDateTime.now() },
             LocalDateTime::class.java
         )

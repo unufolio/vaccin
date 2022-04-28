@@ -1,4 +1,4 @@
-package vaccin.vaccine.dataobject;
+package com.unufolio.vaccin.vaccine.dataobject;
 
 import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.IdType;
@@ -21,12 +21,12 @@ public class BaseEntity {
      * 创建时间
      */
     @TableField(fill = FieldFill.INSERT)
-    private LocalDateTime createdAt;
+    private LocalDateTime createTime;
     /**
      * 创建时间
      */
     @TableField(fill = FieldFill.INSERT_UPDATE)
-    private LocalDateTime modifiedAt;
+    private LocalDateTime modifyTime;
     /**
      * 是否删除
      */
@@ -40,20 +40,20 @@ public class BaseEntity {
         this.id = id;
     }
 
-    public LocalDateTime getCreatedAt() {
-        return createdAt;
+    public LocalDateTime getCreateTime() {
+        return createTime;
     }
 
-    public void setCreatedAt(LocalDateTime createdAt) {
-        this.createdAt = createdAt;
+    public void setCreateTime(LocalDateTime createTime) {
+        this.createTime = createTime;
     }
 
-    public LocalDateTime getModifiedAt() {
-        return modifiedAt;
+    public LocalDateTime getModifyTime() {
+        return modifyTime;
     }
 
-    public void setModifiedAt(LocalDateTime modifiedAt) {
-        this.modifiedAt = modifiedAt;
+    public void setModifyTime(LocalDateTime modifyTime) {
+        this.modifyTime = modifyTime;
     }
 
     public Boolean getDeleted() {
@@ -68,8 +68,8 @@ public class BaseEntity {
     public String toString() {
         return "BaseDataObject{" +
                 "id=" + id +
-                ", createdAt=" + createdAt +
-                ", modifiedAt=" + modifiedAt +
+                ", createTime=" + createTime +
+                ", modifyTime=" + modifyTime +
                 ", isDeleted=" + isDeleted +
                 '}';
     }

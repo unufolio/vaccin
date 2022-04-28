@@ -5,4 +5,6 @@ package com.unufolio.vaccin.vaccine.service
  * @since 2022/04/24
  */
 interface VaccineFactoryService {
+
+    fun deleteVaccineFactory();
 }

@@ -1,6 +1,7 @@
 package com.unufolio.vaccin.vaccine.service
 
-import vaccin.vaccine.dataobject.VaccineDO
+import com.unufolio.vaccin.vaccine.dataobject.VaccineDO
+
 
 /**
  * @author Unufolio unufolio@gmail.com
