@@ -12,7 +12,7 @@ interface VaccineFactoryService {
 
     fun retrieve();
 
-    fun update();
+    fun update(vaccineFactoryDO: VaccineFactoryDO);
 
     fun online();
 

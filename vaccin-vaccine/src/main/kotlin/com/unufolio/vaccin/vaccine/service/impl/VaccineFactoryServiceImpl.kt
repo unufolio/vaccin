@@ -23,8 +23,8 @@ class VaccineFactoryServiceImpl(val vaccineFactoryRepository: VaccineFactoryRepo
         TODO("Not yet implemented")
     }
 
-    override fun update() {
-        TODO("Not yet implemented")
+    override fun update(vaccineFactoryDO: VaccineFactoryDO) {
+        vaccineFactoryRepository.save(vaccineFactoryDO)
     }
 
     override fun online() {

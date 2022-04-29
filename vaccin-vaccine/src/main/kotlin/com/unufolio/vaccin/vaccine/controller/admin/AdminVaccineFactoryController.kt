@@ -28,7 +28,7 @@ class AdminVaccineFactoryController(
     }
 
     @GetMapping("{code}")
-    fun retrieve(): ResultEntity<Void> {
+    fun retrieve(@PathVariable("code") code: String): ResultEntity<Void> {
         return ResultEntity.succeed();
     }
 
@@ -51,6 +51,8 @@ class AdminVaccineFactoryController(
         @PathVariable("code") code: String,
         @RequestBody requestDTO: UpdateVaccineFactoryRequestDTO
     ): ResultEntity<Void> {
+        val vaccineFactoryDO = VaccineFactoryMapping.fromUpdateDTOToDataObject(requestDTO)
+        vaccineFactoryDO.code = code
         return ResultEntity.succeed();
     }
 

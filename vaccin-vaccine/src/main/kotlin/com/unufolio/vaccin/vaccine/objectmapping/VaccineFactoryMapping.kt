@@ -2,6 +2,7 @@ package com.unufolio.vaccin.vaccine.objectmapping
 
 import com.unufolio.vaccin.vaccine.dataobject.VaccineFactoryDO
 import com.unufolio.vaccin.vaccine.dto.vaccinefactory.admin.CreateVaccineFactoryRequestDTO
+import com.unufolio.vaccin.vaccine.dto.vaccinefactory.admin.UpdateVaccineFactoryRequestDTO
 
 
 /**
@@ -20,6 +21,17 @@ class VaccineFactoryMapping {
                 shortName = createVaccineFactoryRequestDTO.shortName
                 shortNameEn = createVaccineFactoryRequestDTO.shortNameEn
                 shortNamePinyin = createVaccineFactoryRequestDTO.shortNamePinyin
+            }
+        }
+
+        fun fromUpdateDTOToDataObject(updateVaccineFactoryRequestDTO: UpdateVaccineFactoryRequestDTO): VaccineFactoryDO {
+            return VaccineFactoryDO().apply {
+                name = updateVaccineFactoryRequestDTO.name
+                nameEn = updateVaccineFactoryRequestDTO.nameEn
+                namePinyin = updateVaccineFactoryRequestDTO.namePinyin
+                shortName = updateVaccineFactoryRequestDTO.shortName
+                shortNameEn = updateVaccineFactoryRequestDTO.shortNameEn
+                shortNamePinyin = updateVaccineFactoryRequestDTO.shortNamePinyin
             }
         }
     }
