@@ -16,7 +16,9 @@ interface VaccineFactoryRepository {
 
     fun selectFirst(vaccineFactoryDO: VaccineFactoryDO): VaccineFactoryDO?
 
-    fun selectFirstNotThisCode(vaccineFactoryDO: VaccineFactoryDO): VaccineFactoryDO?
+    fun exist(vaccineFactoryDO: VaccineFactoryDO): Boolean
+
+    fun existWithinThisCode(vaccineFactoryDO: VaccineFactoryDO): Boolean
 
     fun list(vaccineFactoryDO: VaccineFactoryDO): List<VaccineFactoryDO>
 }
