@@ -6,6 +6,7 @@ import com.unufolio.vaccin.vaccine.dal.repository.VaccineFactoryRepository
 import com.unufolio.vaccin.vaccine.dataobject.VaccineFactoryDO
 import org.springframework.stereotype.Repository
 import java.util.*
+import java.util.function.Consumer
 
 /**
  * @author Unufolio unufolio@gmail.com
@@ -40,6 +41,50 @@ class VaccineFactoryRepositoryImpl(val vaccineFactoryMapper: VaccineFactoryMappe
             VaccineFactoryDO::getCode,
             vaccineFactoryDO.code
         )
+        queryWrapper.eq(
+            Objects.nonNull(vaccineFactoryDO.name),
+            VaccineFactoryDO::getName,
+            vaccineFactoryDO.name
+        )
+        queryWrapper.eq(
+            Objects.nonNull(vaccineFactoryDO.nameEn),
+            VaccineFactoryDO::getNameEn,
+            vaccineFactoryDO.nameEn
+        )
+        queryWrapper.eq(
+            Objects.nonNull(vaccineFactoryDO.namePinyin),
+            VaccineFactoryDO::getNamePinyin,
+            vaccineFactoryDO.namePinyin
+        )
+        queryWrapper.eq(
+            Objects.nonNull(vaccineFactoryDO.shortName),
+            VaccineFactoryDO::getShortName,
+            vaccineFactoryDO.shortName
+        )
+        queryWrapper.eq(
+            Objects.nonNull(vaccineFactoryDO.shortNameEn),
+            VaccineFactoryDO::getShortNameEn,
+            vaccineFactoryDO.shortNameEn
+        )
+        queryWrapper.eq(
+            Objects.nonNull(vaccineFactoryDO.shortNamePinyin),
+            VaccineFactoryDO::getShortNamePinyin,
+            vaccineFactoryDO.shortNamePinyin
+        )
+        queryWrapper.last("LIMIT 1")
+        return vaccineFactoryMapper.selectOne(queryWrapper)
+    }
+
+    override fun selectFirstNotThisCode(vaccineFactoryDO: VaccineFactoryDO): VaccineFactoryDO? {
+        val queryWrapper = Wrappers.lambdaQuery<VaccineFactoryDO>()
+        queryWrapper.not(
+            Objects.nonNull(vaccineFactoryDO.code)
+        ) {
+            it.eq(
+                VaccineFactoryDO::getCode,
+                vaccineFactoryDO.code
+            )
+        }
         queryWrapper.eq(
             Objects.nonNull(vaccineFactoryDO.name),
             VaccineFactoryDO::getName,
