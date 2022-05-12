@@ -10,34 +10,42 @@ import java.time.Instant
  * @author Unufolio unufolio@gmail.com
  * @since 2022/03/29
  */
-open class BaseEntity(
+abstract class BaseEntity(
     /**
      * 主键
      */
-    @TableId(type = IdType.AUTO) private var id: Long? = null,
+    @TableId(type = IdType.AUTO)
+    var id: Long? = null,
     /**
      * 创建时间
      */
-    @TableField(fill = FieldFill.INSERT) private var createTime: Instant? = null,
+    @TableField(fill = FieldFill.INSERT)
+    var createTime: Instant? = null,
     /**
      * 创建时间
      */
-    @TableField(fill = FieldFill.INSERT_UPDATE) private var modifyTime: Instant? = null,
+    @TableField(fill = FieldFill.INSERT_UPDATE)
+    var modifyTime: Instant? = null,
     /**
      * 是否删除
      */
-    private var isDeleted: Boolean? = null
-) {
-    override fun toString(): String {
-        return "BaseEntity(id=$id, createTime=$createTime, modifyTime=$modifyTime, isDeleted=$isDeleted)"
-    }
-}
+    var isDeleted: Boolean? = null
+)
 
 /**
  * @author Unufolio unufolio@gmail.com
  * @since 2022/03/29
  */
-open class TenantBaseEntity(private var tenantId: Long? = null) : BaseEntity() {
+abstract class TenantBaseEntity(
+    private var tenantId: Long? = null,
+    /**
+     * super
+     */
+    id: Long?,
+    createTime: Instant?,
+    modifyTime: Instant?,
+    isDeleted: Boolean?
+) : BaseEntity(id, createTime, modifyTime, isDeleted) {
 
     override fun toString(): String {
         return "TenantBaseEntity(tenantId=$tenantId) ${super.toString()}"

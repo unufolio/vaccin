@@ -21,8 +21,7 @@ class VaccineRepositoryImpl(val vaccineMapper: VaccineMapper) : VaccineRepositor
     }
 
     override fun delete(vaccineDO: VaccineDO): Int {
-        val id = vaccineDO.id
-        return vaccineMapper.deleteById(id);
+        return vaccineMapper.deleteById(vaccineDO.id);
     }
 
 }
