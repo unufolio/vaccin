@@ -1,6 +1,7 @@
 package com.unufolio.vaccin.vaccine.controller.admin
 
 import com.unufolio.common.ResultEntity
+import com.unufolio.vaccin.vaccine.dataobject.VaccineFactoryDO
 import com.unufolio.vaccin.vaccine.dto.CreateVaccineFactoryRequestDTO
 import com.unufolio.vaccin.vaccine.dto.UpdateVaccineFactoryRequestDTO
 import com.unufolio.vaccin.vaccine.objectmapping.VaccineFactoryMapping
@@ -22,27 +23,31 @@ class AdminVaccineFactoryController(
         @RequestBody @Valid requestDTO: CreateVaccineFactoryRequestDTO
     ): ResultEntity<Void> {
         val vaccineFactoryDO = VaccineFactoryMapping.fromCreateDTOToDataObject(requestDTO)
-        vaccineFactoryService.create(vaccineFactoryDO)
-        return ResultEntity.success();
+        return vaccineFactoryService.create(vaccineFactoryDO)
     }
 
     @GetMapping("{code}")
-    fun retrieve(@PathVariable("code") code: String): ResultEntity<Void> {
-        return ResultEntity.success();
+    fun retrieve(@PathVariable(value = "code", required = true) code: String): ResultEntity<VaccineFactoryDO> {
+        return vaccineFactoryService.retrieve(code)
+    }
+
+    @GetMapping("")
+    fun list(@PathVariable(value = "code", required = true) code: String): ResultEntity<VaccineFactoryDO> {
+        return vaccineFactoryService.retrieve(code)
     }
 
     @PostMapping("{code}:offline")
     fun offline(
         @PathVariable("code") code: String
     ): ResultEntity<Void> {
-        return ResultEntity.success();
+        return vaccineFactoryService.offline(code);
     }
 
     @PostMapping("{code}:online")
     fun online(
         @PathVariable("code") code: String
     ): ResultEntity<Void> {
-        return ResultEntity.success();
+        return vaccineFactoryService.online(code)
     }
 
     @PutMapping("{code}")
@@ -52,12 +57,12 @@ class AdminVaccineFactoryController(
     ): ResultEntity<Void> {
         val vaccineFactoryDO = VaccineFactoryMapping.fromUpdateDTOToDataObject(requestDTO)
         vaccineFactoryDO.code = code
-        return ResultEntity.success();
+        return vaccineFactoryService.update(vaccineFactoryDO)
     }
 
     @DeleteMapping("{code}")
     fun delete(
-        @PathVariable("code") code: String
+        @PathVariable(value = "code", required = true) code: String
     ): ResultEntity<Void> {
         return ResultEntity.success();
     }

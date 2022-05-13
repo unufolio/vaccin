@@ -51,7 +51,7 @@ class VaccineFactoryRepositoryImpl(val vaccineFactoryMapper: VaccineFactoryMappe
     }
 
     override fun existNotThisCode(vaccineFactoryDO: VaccineFactoryDO): Boolean {
-        return vaccineFactoryMapper.exists(queryWrapperNotThisCode(vaccineFactoryDO))
+        return vaccineFactoryMapper.exists(queryNotThisCodeWrapper(vaccineFactoryDO))
     }
 
     private fun queryWrapper(vaccineFactoryDO: VaccineFactoryDO): LambdaQueryWrapper<VaccineFactoryDO> {
@@ -93,7 +93,45 @@ class VaccineFactoryRepositoryImpl(val vaccineFactoryMapper: VaccineFactoryMappe
             )
     }
 
-    private fun queryWrapperNotThisCode(vaccineFactoryDO: VaccineFactoryDO): Wrapper<VaccineFactoryDO> {
+    private fun queryLikeWrapper(vaccineFactoryDO: VaccineFactoryDO): LambdaQueryWrapper<VaccineFactoryDO> {
+        return Wrappers.lambdaQuery<VaccineFactoryDO>()
+            .like(
+                Objects.nonNull(vaccineFactoryDO.code),
+                VaccineFactoryDO::code,
+                vaccineFactoryDO.code
+            ).or().like(
+                Objects.nonNull(vaccineFactoryDO.name),
+                VaccineFactoryDO::name,
+                vaccineFactoryDO.name
+            )
+            .or().like(
+                Objects.nonNull(vaccineFactoryDO.nameEn),
+                VaccineFactoryDO::nameEn,
+                vaccineFactoryDO.nameEn
+            )
+            .or().like(
+                Objects.nonNull(vaccineFactoryDO.namePinyin),
+                VaccineFactoryDO::namePinyin,
+                vaccineFactoryDO.namePinyin
+            )
+            .or().like(
+                Objects.nonNull(vaccineFactoryDO.shortName),
+                VaccineFactoryDO::shortName,
+                vaccineFactoryDO.shortName
+            )
+            .or().like(
+                Objects.nonNull(vaccineFactoryDO.shortNameEn),
+                VaccineFactoryDO::shortNameEn,
+                vaccineFactoryDO.shortNameEn
+            )
+            .or().like(
+                Objects.nonNull(vaccineFactoryDO.shortNamePinyin),
+                VaccineFactoryDO::shortNamePinyin,
+                vaccineFactoryDO.shortNamePinyin
+            )
+    }
+
+    private fun queryNotThisCodeWrapper(vaccineFactoryDO: VaccineFactoryDO): Wrapper<VaccineFactoryDO> {
         return Wrappers.lambdaQuery<VaccineFactoryDO>()
             .eq(
                 Objects.nonNull(vaccineFactoryDO.name),
@@ -137,12 +175,12 @@ class VaccineFactoryRepositoryImpl(val vaccineFactoryMapper: VaccineFactoryMappe
 
 
     override fun list(vaccineFactoryDO: VaccineFactoryDO): List<VaccineFactoryDO> {
-        return vaccineFactoryMapper.selectList(queryWrapper(vaccineFactoryDO))
+        return vaccineFactoryMapper.selectList(queryLikeWrapper(vaccineFactoryDO))
     }
 
     override fun page(vaccineFactoryDO: VaccineFactoryDO): IPage<VaccineFactoryDO> {
         val page = Page.of<VaccineFactoryDO>(1, 1)
-        val selectPage = vaccineFactoryMapper.selectPage(page, queryWrapper(vaccineFactoryDO))
+        val selectPage = vaccineFactoryMapper.selectPage(page, queryLikeWrapper(vaccineFactoryDO))
         return PageUtils.toIPage(selectPage)
     }
 
