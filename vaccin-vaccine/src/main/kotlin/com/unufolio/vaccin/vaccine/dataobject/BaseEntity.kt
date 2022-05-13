@@ -37,7 +37,7 @@ abstract class BaseEntity(
  * @since 2022/03/29
  */
 abstract class TenantBaseEntity(
-    private var tenantId: Long? = null,
+    var tenantId: Long? = null,
     /**
      * super
      */
