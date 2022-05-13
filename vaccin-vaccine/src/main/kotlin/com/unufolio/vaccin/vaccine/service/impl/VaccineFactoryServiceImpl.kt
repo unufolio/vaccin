@@ -68,7 +68,7 @@ class VaccineFactoryServiceImpl(val vaccineFactoryRepository: VaccineFactoryRepo
         }
         val res = updateIsOnline(vaccineFactoryDO, false)
         if (res < 1) {
-            return ResultEntity.failure(VaccineFactoryBusinessResultCodeEnum.VACCINE_FACTORY_ONLINE_FAILURE)
+            return ResultEntity.failure(VaccineFactoryBusinessResultCodeEnum.VACCINE_FACTORY_OFFLINE_FAILURE)
         }
         return ResultEntity.success()
     }
