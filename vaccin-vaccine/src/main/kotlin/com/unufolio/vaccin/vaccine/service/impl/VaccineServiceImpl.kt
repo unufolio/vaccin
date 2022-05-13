@@ -4,7 +4,6 @@ import com.unufolio.vaccin.vaccine.dal.repository.VaccineRepository
 import com.unufolio.vaccin.vaccine.dataobject.VaccineDO
 import com.unufolio.vaccin.vaccine.service.VaccineService
 import org.springframework.stereotype.Service
-import java.time.Instant
 
 /**
  * @author Unufolio unufolio@gmail.com
@@ -17,18 +16,13 @@ class VaccineServiceImpl(val vaccineRepository: VaccineRepository) : VaccineServ
         return vaccineRepository.retrieve()
     }
 
-    override fun saveVaccine(): Int {
-        val vaccineDO = VaccineDO()
-        vaccineRepository.save(vaccineDO)
-        print(vaccineDO)
-        return 0
+    override fun saveVaccine(vaccineDO: VaccineDO): Int {
+        return vaccineRepository.save(vaccineDO)
     }
 
     override fun delete(): Int {
         val vaccineDO = VaccineDO()
-        vaccineRepository.delete(vaccineDO)
-        print(vaccineDO)
-        return 0
+        return vaccineRepository.delete(vaccineDO)
     }
 
 }

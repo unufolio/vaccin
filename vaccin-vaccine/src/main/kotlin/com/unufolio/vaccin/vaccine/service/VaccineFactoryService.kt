@@ -1,5 +1,6 @@
 package com.unufolio.vaccin.vaccine.service
 
+import com.unufolio.common.ResultEntity
 import com.unufolio.vaccin.vaccine.dataobject.VaccineFactoryDO
 
 /**
@@ -8,15 +9,15 @@ import com.unufolio.vaccin.vaccine.dataobject.VaccineFactoryDO
  */
 interface VaccineFactoryService {
 
-    fun create(vaccineFactoryDO: VaccineFactoryDO);
+    fun create(vaccineFactoryDO: VaccineFactoryDO): ResultEntity<Void>;
 
-    fun retrieve();
+    fun retrieve(code: String): ResultEntity<VaccineFactoryDO>;
 
-    fun update(vaccineFactoryDO: VaccineFactoryDO);
+    fun update(vaccineFactoryDO: VaccineFactoryDO): ResultEntity<Void> ;
 
-    fun online();
+    fun online(code: String): ResultEntity<Void>;
 
-    fun offline();
+    fun offline(code: String): ResultEntity<Void>;
 
-    fun delete();
+    fun delete(code: String): ResultEntity<Void>;
 }

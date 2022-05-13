@@ -23,26 +23,26 @@ class AdminVaccineFactoryController(
     ): ResultEntity<Void> {
         val vaccineFactoryDO = VaccineFactoryMapping.fromCreateDTOToDataObject(requestDTO)
         vaccineFactoryService.create(vaccineFactoryDO)
-        return ResultEntity.succeed();
+        return ResultEntity.success();
     }
 
     @GetMapping("{code}")
     fun retrieve(@PathVariable("code") code: String): ResultEntity<Void> {
-        return ResultEntity.succeed();
+        return ResultEntity.success();
     }
 
     @PostMapping("{code}:offline")
     fun offline(
         @PathVariable("code") code: String
     ): ResultEntity<Void> {
-        return ResultEntity.succeed();
+        return ResultEntity.success();
     }
 
     @PostMapping("{code}:online")
     fun online(
         @PathVariable("code") code: String
     ): ResultEntity<Void> {
-        return ResultEntity.succeed();
+        return ResultEntity.success();
     }
 
     @PutMapping("{code}")
@@ -52,13 +52,13 @@ class AdminVaccineFactoryController(
     ): ResultEntity<Void> {
         val vaccineFactoryDO = VaccineFactoryMapping.fromUpdateDTOToDataObject(requestDTO)
         vaccineFactoryDO.code = code
-        return ResultEntity.succeed();
+        return ResultEntity.success();
     }
 
     @DeleteMapping("{code}")
     fun delete(
         @PathVariable("code") code: String
     ): ResultEntity<Void> {
-        return ResultEntity.succeed();
+        return ResultEntity.success();
     }
 }

@@ -14,11 +14,13 @@ interface VaccineFactoryRepository {
 
     fun update(vaccineFactoryDO: VaccineFactoryDO): Int
 
+    fun selectFirstByCode(code: String): VaccineFactoryDO?
+
     fun selectFirst(vaccineFactoryDO: VaccineFactoryDO): VaccineFactoryDO?
 
     fun exist(vaccineFactoryDO: VaccineFactoryDO): Boolean
 
-    fun existWithinThisCode(vaccineFactoryDO: VaccineFactoryDO): Boolean
+    fun existNotThisCode(vaccineFactoryDO: VaccineFactoryDO): Boolean
 
     fun list(vaccineFactoryDO: VaccineFactoryDO): List<VaccineFactoryDO>
 }

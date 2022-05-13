@@ -22,7 +22,7 @@ class VaccineController(
 
     @PostMapping("")
     fun create() {
-        vaccineService.saveVaccine()
+        vaccineService.saveVaccine(VaccineDO())
     }
 
     @GetMapping("code/{code}")
@@ -31,7 +31,7 @@ class VaccineController(
         val retrieve = vaccineService.retrieve()
         print(retrieve)
 
-        val resultEntity = ResultEntity.succeed(VaccineDO())
+        val resultEntity = ResultEntity.success(VaccineDO())
         val data = resultEntity.data;
         println(data)
         return resultEntity
@@ -44,12 +44,12 @@ class VaccineController(
 
     @GetMapping("list")
     fun list(): ResultEntity<List<VaccineDO>> {
-        return ResultEntity.succeed(ArrayList())
+        return ResultEntity.success(ArrayList())
     }
 
     @GetMapping("page")
     fun page(): ResultEntity<List<VaccineDO>> {
-        return ResultEntity.succeed(ArrayList())
+        return ResultEntity.success(ArrayList())
     }
 
 

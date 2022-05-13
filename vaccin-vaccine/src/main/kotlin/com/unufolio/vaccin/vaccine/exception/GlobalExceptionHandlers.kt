@@ -4,7 +4,6 @@ import com.unufolio.common.ResultEntity
 import com.unufolio.vaccin.vaccine.enums.ParamValidationResultCodeEnum
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
-import org.springframework.core.annotation.Order
 import org.springframework.web.bind.MethodArgumentNotValidException
 import org.springframework.web.bind.annotation.ExceptionHandler
 import org.springframework.web.bind.annotation.RestControllerAdvice
@@ -32,12 +31,12 @@ class GlobalExceptionHandlers {
         val result = exception.bindingResult
         val fieldError = result.fieldError
         val paramValidationResultCodeEnum = ParamValidationResultCodeEnum.map[fieldError!!.defaultMessage]
-        return ResultEntity.error(paramValidationResultCodeEnum);
+        return ResultEntity.failure(paramValidationResultCodeEnum);
     }
 
     @ExceptionHandler(value = [NotFound::class])
     fun exceptionHandler(exception: Exception): ResultEntity<Void> {
         logger.error("Exception: ", exception)
-        return ResultEntity.error(ResultEntity.error());
+        return ResultEntity.failure(ResultEntity.failure());
     }
 }

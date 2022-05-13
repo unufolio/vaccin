@@ -11,7 +11,7 @@ interface VaccineService {
 
     fun retrieve(): VaccineDO?
 
-    fun saveVaccine(): Int
+    fun saveVaccine(vaccineDO: VaccineDO): Int
 
     fun delete(): Int;
 }

@@ -3,7 +3,7 @@ package com.unufolio.common;
 import com.unufolio.common.page.ICursorPage;
 import com.unufolio.common.page.IPage;
 
-import java.time.Instant;
+import java.time.LocalDateTime;
 import java.util.Collection;
 
 /**
@@ -15,11 +15,11 @@ public class ResultEntity<T> {
     private Boolean success;
     private String code;
     private String message;
-    private Instant timestamp;
+    private LocalDateTime timestamp;
     private Object ext;
     private T data;
 
-    private ResultEntity(boolean success, String code, String message, Instant timestamp, Object ext, T data) {
+    private ResultEntity(boolean success, String code, String message, LocalDateTime timestamp, Object ext, T data) {
         this.success = success;
         this.code = code;
         this.message = message;
@@ -28,7 +28,7 @@ public class ResultEntity<T> {
         this.data = data;
     }
 
-    private static <T> ResultEntity<T> of(boolean success, String code, String message, Instant timestamp, Object ext, T data) {
+    private static <T> ResultEntity<T> of(boolean success, String code, String message, LocalDateTime timestamp, Object ext, T data) {
         return new ResultEntity<>(success, code, message, timestamp, ext, data);
     }
 
@@ -56,11 +56,11 @@ public class ResultEntity<T> {
         this.message = message;
     }
 
-    public Instant getTimestamp() {
+    public LocalDateTime getTimestamp() {
         return timestamp;
     }
 
-    public void setTimestamp(Instant timestamp) {
+    public void setTimestamp(LocalDateTime timestamp) {
         this.timestamp = timestamp;
     }
 
@@ -78,6 +78,14 @@ public class ResultEntity<T> {
 
     public void setData(T data) {
         this.data = data;
+    }
+
+    public boolean isSuccess() {
+        return success;
+    }
+
+    public boolean isFailure() {
+        return !success;
     }
 
     @Override
@@ -101,7 +109,7 @@ public class ResultEntity<T> {
         private boolean success;
         private String code;
         private String message;
-        private Instant timestamp;
+        private LocalDateTime timestamp;
         private Object ext;
 
         public Builder code(String code) {
@@ -114,7 +122,7 @@ public class ResultEntity<T> {
             return this;
         }
 
-        public Builder timestamp(Instant timestamp) {
+        public Builder timestamp(LocalDateTime timestamp) {
             this.timestamp = timestamp;
             return this;
         }
@@ -149,140 +157,140 @@ public class ResultEntity<T> {
         }
     }
 
-    public static ResultEntity<Void> succeed() {
+    public static ResultEntity<Void> success() {
         return ResultEntity.builder()
                 .success(true)
                 .code(ResultCodeEnum.SUCCESS.value())
                 .message(ResultCodeEnum.SUCCESS.message())
-                .timestamp(Instant.now())
+                .timestamp(LocalDateTime.now())
                 .build();
     }
 
-    public static <T> ResultEntity<T> succeed(T data) {
+    public static <T> ResultEntity<T> success(T data) {
         return ResultEntity.builder()
                 .success(true)
                 .code(ResultCodeEnum.SUCCESS.value())
                 .message(ResultCodeEnum.SUCCESS.message())
-                .timestamp(Instant.now())
+                .timestamp(LocalDateTime.now())
                 .data(data);
     }
 
-    public static <T> ResultEntity<T> succeed(T data, Object ext) {
+    public static <T> ResultEntity<T> success(T data, Object ext) {
         return ResultEntity.builder()
                 .success(true)
                 .code(ResultCodeEnum.SUCCESS.value())
                 .message(ResultCodeEnum.SUCCESS.message())
-                .timestamp(Instant.now())
+                .timestamp(LocalDateTime.now())
                 .ext(ext)
                 .data(data);
     }
 
-    public static <T> ResultEntity<T> succeed(IResultCode resultCode, T data) {
+    public static <T> ResultEntity<T> success(IResultCode resultCode, T data) {
         return ResultEntity.builder()
                 .success(true)
                 .code(resultCode.value())
                 .message(resultCode.message())
-                .timestamp(Instant.now())
+                .timestamp(LocalDateTime.now())
                 .data(data);
     }
 
-    public static <T> ResultEntity<T> succeed(IResultCode resultCode, T data, Object ext) {
+    public static <T> ResultEntity<T> success(IResultCode resultCode, T data, Object ext) {
         return ResultEntity.builder()
                 .success(true)
                 .code(resultCode.value())
                 .message(resultCode.message())
-                .timestamp(Instant.now())
+                .timestamp(LocalDateTime.now())
                 .ext(ext)
                 .data(data);
     }
 
-    public static <T> ResultEntity<IPage<T>> succeed(IPage<T> page) {
+    public static <T> ResultEntity<IPage<T>> success(IPage<T> page) {
         return ResultEntity.builder()
                 .success(true)
                 .code(ResultCodeEnum.SUCCESS.value())
                 .message(ResultCodeEnum.SUCCESS.message())
-                .timestamp(Instant.now())
+                .timestamp(LocalDateTime.now())
                 .data(page);
     }
 
-    public static <T> ResultEntity<IPage<T>> succeed(ICursorPage<T> page) {
+    public static <T> ResultEntity<IPage<T>> success(ICursorPage<T> page) {
         return ResultEntity.builder()
                 .success(true)
                 .code(ResultCodeEnum.SUCCESS.value())
                 .message(ResultCodeEnum.SUCCESS.message())
-                .timestamp(Instant.now())
+                .timestamp(LocalDateTime.now())
                 .data(page);
     }
 
     public static <T> ResultEntity<IPage<T>> page(IPage<T> page) {
-        return succeed(page);
+        return success(page);
     }
 
     public static <T> ResultEntity<IPage<T>> page(ICursorPage<T> page) {
-        return succeed(page);
+        return success(page);
     }
 
     public static <T> ResultEntity<Collection<T>> collect(Collection<T> coll) {
-        return succeed(coll);
+        return success(coll);
     }
 
     public static <T> ResultEntity<T[]> arrays(T[] arrays) {
-        return succeed(arrays);
+        return success(arrays);
     }
 
-    public static ResultEntity<Void> error() {
+    public static <T> ResultEntity<T> failure() {
         return ResultEntity.builder()
                 .success(false)
                 .code(ResultCodeEnum.ERROR.value())
                 .message(ResultCodeEnum.ERROR.message())
-                .timestamp(Instant.now())
+                .timestamp(LocalDateTime.now())
                 .build();
     }
 
-    public static ResultEntity<Void> error(Object ext) {
+    public static <T> ResultEntity<T> failure(Object ext) {
         return ResultEntity.builder()
                 .success(false)
                 .code(ResultCodeEnum.ERROR.value())
                 .message(ResultCodeEnum.ERROR.message())
-                .timestamp(Instant.now())
+                .timestamp(LocalDateTime.now())
                 .ext(ext)
                 .build();
     }
 
-    public static ResultEntity<Void> error(IResultCode resultCode) {
+    public static <T> ResultEntity<T> failure(IResultCode resultCode) {
         return ResultEntity.builder()
                 .success(false)
                 .code(resultCode.value())
                 .message(resultCode.message())
-                .timestamp(Instant.now())
+                .timestamp(LocalDateTime.now())
                 .build();
     }
 
-    public static ResultEntity<Void> error(IResultCode resultCode, Object ext) {
+    public static <T> ResultEntity<T> failure(IResultCode resultCode, Object ext) {
         return ResultEntity.builder()
                 .success(false)
                 .code(resultCode.value())
                 .message(resultCode.message())
-                .timestamp(Instant.now())
+                .timestamp(LocalDateTime.now())
                 .ext(ext)
                 .build();
     }
 
-    public static ResultEntity<Void> error(String code, String message) {
+    public static <T> ResultEntity<T> failure(String code, String message) {
         return ResultEntity.builder()
                 .success(false)
                 .code(code)
                 .message(message)
-                .timestamp(Instant.now())
+                .timestamp(LocalDateTime.now())
                 .build();
     }
 
-    public static ResultEntity<Void> error(String code, String message, Object ext) {
+    public static <T> ResultEntity<T> failure(String code, String message, Object ext) {
         return ResultEntity.builder()
                 .success(false)
                 .code(code)
                 .message(message)
-                .timestamp(Instant.now())
+                .timestamp(LocalDateTime.now())
                 .ext(ext)
                 .build();
     }
