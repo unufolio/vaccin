@@ -7,12 +7,12 @@ import com.unufolio.common.IResultCode
  * @since 2022/05/13
  */
 enum class VaccineFactoryBusinessResultCodeEnum(private val value: String, private val message: String) : IResultCode {
-    VACCINE_FACTORY_CODE_EXIST("B400001", "vaccine factory code exist"),
-    VACCINE_FACTORY_NAME_EXIST("B400002", "vaccine factory name exist"),
-    VACCINE_FACTORY_NOT_EXIST("B400003", "vaccine factory not exist"),
-    VACCINE_FACTORY_CREATE_FAILURE("B400004", "vaccine factory create failure"),
-    VACCINE_FACTORY_DELETE_FAILURE("B400005", "vaccine factory delete failure"),
-    VACCINE_FACTORY_UPDATE_FAILURE("B400006", "vaccine factory update failure"),
+    VACCINE_FACTORY_CODE_EXIST("B4000001", "vaccine factory code exist"),
+    VACCINE_FACTORY_NAME_EXIST("B4000002", "vaccine factory name exist"),
+    VACCINE_FACTORY_NOT_EXIST("B4000003", "vaccine factory not exist"),
+    VACCINE_FACTORY_CREATE_FAILURE("B4000004", "vaccine factory create failure"),
+    VACCINE_FACTORY_DELETE_FAILURE("B4000005", "vaccine factory delete failure"),
+    VACCINE_FACTORY_UPDATE_FAILURE("B4000006", "vaccine factory update failure"),
     ;
 
     override fun value(): String? {
