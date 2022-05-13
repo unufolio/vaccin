@@ -1,6 +1,7 @@
 package com.unufolio.vaccin.vaccine.service
 
 import com.unufolio.common.ResultEntity
+import com.unufolio.common.page.IPage
 import com.unufolio.vaccin.vaccine.dataobject.VaccineFactoryDO
 
 /**
@@ -20,4 +21,8 @@ interface VaccineFactoryService {
     fun offline(code: String): ResultEntity<Void>;
 
     fun delete(code: String): ResultEntity<Void>;
+
+    fun list(vaccineFactoryDO: VaccineFactoryDO): List<VaccineFactoryDO>
+
+    fun page(vaccineFactoryDO: VaccineFactoryDO): IPage<VaccineFactoryDO>
 }

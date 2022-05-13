@@ -1,6 +1,7 @@
 package com.unufolio.vaccin.vaccine.service.impl
 
 import com.unufolio.common.ResultEntity
+import com.unufolio.common.page.IPage
 import com.unufolio.vaccin.vaccine.dal.repository.VaccineFactoryRepository
 import com.unufolio.vaccin.vaccine.dataobject.VaccineFactoryDO
 import com.unufolio.vaccin.vaccine.enums.VaccineFactoryBusinessResultCodeEnum
@@ -83,6 +84,14 @@ class VaccineFactoryServiceImpl(val vaccineFactoryRepository: VaccineFactoryRepo
             return ResultEntity.failure(VaccineFactoryBusinessResultCodeEnum.VACCINE_FACTORY_DELETE_FAILURE)
         }
         return ResultEntity.success()
+    }
+
+    override fun list(vaccineFactoryDO: VaccineFactoryDO): List<VaccineFactoryDO> {
+        return vaccineFactoryRepository.list(vaccineFactoryDO)
+    }
+
+    override fun page(vaccineFactoryDO: VaccineFactoryDO): IPage<VaccineFactoryDO> {
+        return vaccineFactoryRepository.page(vaccineFactoryDO)
     }
 
     private fun codeExist(vaccineFactoryDO: VaccineFactoryDO): Boolean {

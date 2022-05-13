@@ -2,11 +2,13 @@ package com.unufolio.vaccin.vaccine.dal.repository.impl
 
 import com.baomidou.mybatisplus.core.conditions.Wrapper
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper
 import com.baomidou.mybatisplus.core.toolkit.Wrappers
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page
+import com.unufolio.common.page.IPage
 import com.unufolio.vaccin.vaccine.dal.mapper.VaccineFactoryMapper
 import com.unufolio.vaccin.vaccine.dal.repository.VaccineFactoryRepository
 import com.unufolio.vaccin.vaccine.dataobject.VaccineFactoryDO
+import com.unufolio.vaccin.vaccine.util.PageUtils
 import org.springframework.stereotype.Repository
 import java.util.*
 
@@ -135,7 +137,13 @@ class VaccineFactoryRepositoryImpl(val vaccineFactoryMapper: VaccineFactoryMappe
 
 
     override fun list(vaccineFactoryDO: VaccineFactoryDO): List<VaccineFactoryDO> {
-        return ArrayList()
+        return vaccineFactoryMapper.selectList(queryWrapper(vaccineFactoryDO))
+    }
+
+    override fun page(vaccineFactoryDO: VaccineFactoryDO): IPage<VaccineFactoryDO> {
+        val page = Page.of<VaccineFactoryDO>(1, 1)
+        val selectPage = vaccineFactoryMapper.selectPage(page, queryWrapper(vaccineFactoryDO))
+        return PageUtils.toIPage(selectPage)
     }
 
 }

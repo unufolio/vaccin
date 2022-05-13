@@ -1,5 +1,6 @@
 package com.unufolio.vaccin.vaccine.dal.repository
 
+import com.unufolio.common.page.IPage
 import com.unufolio.vaccin.vaccine.dataobject.VaccineFactoryDO
 
 /**
@@ -23,4 +24,6 @@ interface VaccineFactoryRepository {
     fun existNotThisCode(vaccineFactoryDO: VaccineFactoryDO): Boolean
 
     fun list(vaccineFactoryDO: VaccineFactoryDO): List<VaccineFactoryDO>
+
+    fun page(vaccineFactoryDO: VaccineFactoryDO): IPage<VaccineFactoryDO>
 }
