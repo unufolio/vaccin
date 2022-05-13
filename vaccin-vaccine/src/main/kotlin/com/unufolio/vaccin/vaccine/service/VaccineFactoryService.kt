@@ -16,10 +16,6 @@ interface VaccineFactoryService {
 
     fun update(vaccineFactoryDO: VaccineFactoryDO): ResultEntity<Void> ;
 
-    fun online(code: String): ResultEntity<Void>;
-
-    fun offline(code: String): ResultEntity<Void>;
-
     fun delete(code: String): ResultEntity<Void>;
 
     fun list(vaccineFactoryDO: VaccineFactoryDO): List<VaccineFactoryDO>

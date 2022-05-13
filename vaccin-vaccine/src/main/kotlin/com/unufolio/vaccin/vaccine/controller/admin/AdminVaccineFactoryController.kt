@@ -2,8 +2,8 @@ package com.unufolio.vaccin.vaccine.controller.admin
 
 import com.unufolio.common.ResultEntity
 import com.unufolio.vaccin.vaccine.dataobject.VaccineFactoryDO
-import com.unufolio.vaccin.vaccine.dto.CreateVaccineFactoryRequestDTO
-import com.unufolio.vaccin.vaccine.dto.UpdateVaccineFactoryRequestDTO
+import com.unufolio.vaccin.vaccine.dto.admin.CreateVaccineFactoryRequestDTO
+import com.unufolio.vaccin.vaccine.dto.admin.UpdateVaccineFactoryRequestDTO
 import com.unufolio.vaccin.vaccine.objectmapping.VaccineFactoryMapping
 import com.unufolio.vaccin.vaccine.service.VaccineFactoryService
 import jakarta.validation.Valid
@@ -13,12 +13,13 @@ import org.springframework.web.bind.annotation.*
  * @author Unufolio unufolio@gmail.com
  * @since 2022/04/28
  */
-@RestController("admin/vaccine-factories")
+@RestController()
+@RequestMapping("admin/vaccine-factories")
 class AdminVaccineFactoryController(
     private val vaccineFactoryService: VaccineFactoryService,
 ) {
 
-    @PostMapping()
+    @PostMapping("")
     fun create(
         @RequestBody @Valid requestDTO: CreateVaccineFactoryRequestDTO
     ): ResultEntity<Void> {
@@ -32,22 +33,8 @@ class AdminVaccineFactoryController(
     }
 
     @GetMapping("")
-    fun list(@PathVariable(value = "code", required = true) code: String): ResultEntity<VaccineFactoryDO> {
-        return vaccineFactoryService.retrieve(code)
-    }
-
-    @PostMapping("{code}:offline")
-    fun offline(
-        @PathVariable("code") code: String
-    ): ResultEntity<Void> {
-        return vaccineFactoryService.offline(code);
-    }
-
-    @PostMapping("{code}:online")
-    fun online(
-        @PathVariable("code") code: String
-    ): ResultEntity<Void> {
-        return vaccineFactoryService.online(code)
+    fun list(vaccineFactoryDO: VaccineFactoryDO): ResultEntity<List<VaccineFactoryDO>> {
+        return ResultEntity.success(vaccineFactoryService.list(vaccineFactoryDO))
     }
 
     @PutMapping("{code}")

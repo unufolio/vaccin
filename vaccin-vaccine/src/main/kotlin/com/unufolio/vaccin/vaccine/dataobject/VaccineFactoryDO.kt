@@ -38,10 +38,6 @@ class VaccineFactoryDO(
      */
     var shortNamePinyin: String? = null,
     /**
-     * 是否上线
-     */
-    var isOnline: Boolean? = null,
-    /**
      * super
      */
     id: Long? = null,
@@ -50,6 +46,6 @@ class VaccineFactoryDO(
     isDeleted: Boolean? = null
 ) : BaseEntity(id, createTime, modifyTime, isDeleted) {
     override fun toString(): String {
-        return "VaccineFactoryDO(code=$code, name=$name, nameEn=$nameEn, shortName=$shortName, shortNameEn=$shortNameEn, namePinyin=$namePinyin, shortNamePinyin=$shortNamePinyin, isOnline=$isOnline)"
+        return "VaccineFactoryDO(code=$code, name=$name, nameEn=$nameEn, shortName=$shortName, shortNameEn=$shortNameEn, namePinyin=$namePinyin, shortNamePinyin=$shortNamePinyin)"
     }
 }

@@ -1,8 +1,8 @@
 package com.unufolio.vaccin.vaccine.objectmapping
 
 import com.unufolio.vaccin.vaccine.dataobject.VaccineFactoryDO
-import com.unufolio.vaccin.vaccine.dto.CreateVaccineFactoryRequestDTO
-import com.unufolio.vaccin.vaccine.dto.UpdateVaccineFactoryRequestDTO
+import com.unufolio.vaccin.vaccine.dto.admin.CreateVaccineFactoryRequestDTO
+import com.unufolio.vaccin.vaccine.dto.admin.UpdateVaccineFactoryRequestDTO
 
 
 /**

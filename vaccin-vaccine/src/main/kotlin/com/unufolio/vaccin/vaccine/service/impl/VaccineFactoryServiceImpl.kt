@@ -18,7 +18,6 @@ class VaccineFactoryServiceImpl(val vaccineFactoryRepository: VaccineFactoryRepo
         if (codeExist(vaccineFactoryDO)) {
             return ResultEntity.failure(VaccineFactoryBusinessResultCodeEnum.VACCINE_FACTORY_CODE_EXIST)
         } else {
-            vaccineFactoryDO.isOnline = true
             val res = vaccineFactoryRepository.save(vaccineFactoryDO)
             if (res < 1) {
                 return ResultEntity.failure(VaccineFactoryBusinessResultCodeEnum.VACCINE_FACTORY_CREATE_FAILURE)
@@ -47,32 +46,6 @@ class VaccineFactoryServiceImpl(val vaccineFactoryRepository: VaccineFactoryRepo
         return ResultEntity.success()
     }
 
-    override fun online(code: String): ResultEntity<Void> {
-        val vaccineFactoryDO = VaccineFactoryDO(code = code)
-        val vaccineFactoryFromDb = vaccineFactoryRepository.selectFirst(vaccineFactoryDO)
-        if (vaccineFactoryFromDb == null) {
-            return ResultEntity.failure(VaccineFactoryBusinessResultCodeEnum.VACCINE_FACTORY_DELETE_FAILURE)
-        }
-        val res = updateIsOnline(vaccineFactoryDO, true)
-        if (res < 1) {
-            return ResultEntity.failure(VaccineFactoryBusinessResultCodeEnum.VACCINE_FACTORY_ONLINE_FAILURE)
-        }
-        return ResultEntity.success()
-    }
-
-    override fun offline(code: String): ResultEntity<Void> {
-        val vaccineFactoryDO = VaccineFactoryDO(code = code)
-        val vaccineFactoryFromDb = vaccineFactoryRepository.selectFirst(vaccineFactoryDO)
-        if (vaccineFactoryFromDb == null) {
-            return ResultEntity.failure(VaccineFactoryBusinessResultCodeEnum.VACCINE_FACTORY_DELETE_FAILURE)
-        }
-        val res = updateIsOnline(vaccineFactoryDO, false)
-        if (res < 1) {
-            return ResultEntity.failure(VaccineFactoryBusinessResultCodeEnum.VACCINE_FACTORY_OFFLINE_FAILURE)
-        }
-        return ResultEntity.success()
-    }
-
     override fun delete(code: String): ResultEntity<Void> {
         val vaccineFactoryDO = VaccineFactoryDO(code = code)
         val vaccineFactoryFromDb = vaccineFactoryRepository.selectFirst(vaccineFactoryDO)
@@ -96,15 +69,6 @@ class VaccineFactoryServiceImpl(val vaccineFactoryRepository: VaccineFactoryRepo
 
     private fun codeExist(vaccineFactoryDO: VaccineFactoryDO): Boolean {
         val query = VaccineFactoryDO(code = vaccineFactoryDO.code)
-        if (vaccineFactoryDO.code.isNullOrBlank()) {
-            return vaccineFactoryRepository.exist(query);
-        }
-        return vaccineFactoryRepository.existNotThisCode(query);
+        return vaccineFactoryRepository.exist(query)
     }
-
-    private fun updateIsOnline(vaccineFactoryDO: VaccineFactoryDO, isOnline: Boolean): Int {
-        vaccineFactoryDO.isOnline = isOnline;
-        return vaccineFactoryRepository.update(vaccineFactoryDO)
-    }
-
 }

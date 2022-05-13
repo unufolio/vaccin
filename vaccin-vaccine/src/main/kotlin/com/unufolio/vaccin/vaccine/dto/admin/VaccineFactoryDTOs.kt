@@ -1,4 +1,4 @@
-package com.unufolio.vaccin.vaccine.dto
+package com.unufolio.vaccin.vaccine.dto.admin
 
 import jakarta.validation.constraints.NotBlank
 
@@ -7,9 +7,9 @@ import jakarta.validation.constraints.NotBlank
  * @since 2022/04/28
  */
 class CreateVaccineFactoryRequestDTO(
-    @NotBlank(message = "VACCINE_FACTORY_CODE_NOT_BLANK")
+    @get:NotBlank(message = "VACCINE_FACTORY_CODE_NOT_BLANK")
     val code: String? = null,
-    @NotBlank(message = "VACCINE_FACTORY_NAME_NOT_BLANK")
+    @get:NotBlank(message = "VACCINE_FACTORY_NAME_NOT_BLANK")
     val name: String? = null,
     val nameEn: String? = null,
     val shortName: String? = null,
@@ -23,7 +23,7 @@ class CreateVaccineFactoryRequestDTO(
 }
 
 class UpdateVaccineFactoryRequestDTO(
-    @NotBlank(message = "VACCINE_FACTORY_NAME_NOT_BLANK")
+    @get:NotBlank(message = "VACCINE_FACTORY_NAME_NOT_BLANK")
     val name: String? = null,
     val nameEn: String? = null,
     val shortName: String? = null,

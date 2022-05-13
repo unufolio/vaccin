@@ -3,6 +3,7 @@ package com.unufolio.common;
 import com.unufolio.common.page.ICursorPage;
 import com.unufolio.common.page.IPage;
 
+import java.time.Instant;
 import java.time.LocalDateTime;
 import java.util.Collection;
 
@@ -15,11 +16,11 @@ public class ResultEntity<T> {
     private Boolean success;
     private String code;
     private String message;
-    private LocalDateTime timestamp;
+    private Instant timestamp;
     private Object ext;
     private T data;
 
-    private ResultEntity(boolean success, String code, String message, LocalDateTime timestamp, Object ext, T data) {
+    private ResultEntity(boolean success, String code, String message, Instant timestamp, Object ext, T data) {
         this.success = success;
         this.code = code;
         this.message = message;
@@ -28,7 +29,7 @@ public class ResultEntity<T> {
         this.data = data;
     }
 
-    private static <T> ResultEntity<T> of(boolean success, String code, String message, LocalDateTime timestamp, Object ext, T data) {
+    private static <T> ResultEntity<T> of(boolean success, String code, String message, Instant timestamp, Object ext, T data) {
         return new ResultEntity<>(success, code, message, timestamp, ext, data);
     }
 
@@ -56,11 +57,11 @@ public class ResultEntity<T> {
         this.message = message;
     }
 
-    public LocalDateTime getTimestamp() {
+    public Instant getTimestamp() {
         return timestamp;
     }
 
-    public void setTimestamp(LocalDateTime timestamp) {
+    public void setTimestamp(Instant timestamp) {
         this.timestamp = timestamp;
     }
 
@@ -109,7 +110,7 @@ public class ResultEntity<T> {
         private boolean success;
         private String code;
         private String message;
-        private LocalDateTime timestamp;
+        private Instant timestamp;
         private Object ext;
 
         public Builder code(String code) {
@@ -122,7 +123,7 @@ public class ResultEntity<T> {
             return this;
         }
 
-        public Builder timestamp(LocalDateTime timestamp) {
+        public Builder timestamp(Instant timestamp) {
             this.timestamp = timestamp;
             return this;
         }
@@ -142,7 +143,7 @@ public class ResultEntity<T> {
         }
 
         public <T> ResultEntity<T> build() {
-            return this.data(null);
+            return data(null);
         }
 
         @Override
@@ -162,7 +163,7 @@ public class ResultEntity<T> {
                 .success(true)
                 .code(ResultCodeEnum.SUCCESS.value())
                 .message(ResultCodeEnum.SUCCESS.message())
-                .timestamp(LocalDateTime.now())
+                .timestamp(Instant.now())
                 .build();
     }
 
@@ -171,7 +172,7 @@ public class ResultEntity<T> {
                 .success(true)
                 .code(ResultCodeEnum.SUCCESS.value())
                 .message(ResultCodeEnum.SUCCESS.message())
-                .timestamp(LocalDateTime.now())
+                .timestamp(Instant.now())
                 .data(data);
     }
 
@@ -180,7 +181,7 @@ public class ResultEntity<T> {
                 .success(true)
                 .code(ResultCodeEnum.SUCCESS.value())
                 .message(ResultCodeEnum.SUCCESS.message())
-                .timestamp(LocalDateTime.now())
+                .timestamp(Instant.now())
                 .ext(ext)
                 .data(data);
     }
@@ -190,7 +191,7 @@ public class ResultEntity<T> {
                 .success(true)
                 .code(resultCode.value())
                 .message(resultCode.message())
-                .timestamp(LocalDateTime.now())
+                .timestamp(Instant.now())
                 .data(data);
     }
 
@@ -199,7 +200,7 @@ public class ResultEntity<T> {
                 .success(true)
                 .code(resultCode.value())
                 .message(resultCode.message())
-                .timestamp(LocalDateTime.now())
+                .timestamp(Instant.now())
                 .ext(ext)
                 .data(data);
     }
@@ -209,7 +210,7 @@ public class ResultEntity<T> {
                 .success(true)
                 .code(ResultCodeEnum.SUCCESS.value())
                 .message(ResultCodeEnum.SUCCESS.message())
-                .timestamp(LocalDateTime.now())
+                .timestamp(Instant.now())
                 .data(page);
     }
 
@@ -218,7 +219,7 @@ public class ResultEntity<T> {
                 .success(true)
                 .code(ResultCodeEnum.SUCCESS.value())
                 .message(ResultCodeEnum.SUCCESS.message())
-                .timestamp(LocalDateTime.now())
+                .timestamp(Instant.now())
                 .data(page);
     }
 
@@ -243,7 +244,7 @@ public class ResultEntity<T> {
                 .success(false)
                 .code(ResultCodeEnum.ERROR.value())
                 .message(ResultCodeEnum.ERROR.message())
-                .timestamp(LocalDateTime.now())
+                .timestamp(Instant.now())
                 .build();
     }
 
@@ -252,7 +253,7 @@ public class ResultEntity<T> {
                 .success(false)
                 .code(ResultCodeEnum.ERROR.value())
                 .message(ResultCodeEnum.ERROR.message())
-                .timestamp(LocalDateTime.now())
+                .timestamp(Instant.now())
                 .ext(ext)
                 .build();
     }
@@ -262,7 +263,7 @@ public class ResultEntity<T> {
                 .success(false)
                 .code(resultCode.value())
                 .message(resultCode.message())
-                .timestamp(LocalDateTime.now())
+                .timestamp(Instant.now())
                 .build();
     }
 
@@ -271,7 +272,7 @@ public class ResultEntity<T> {
                 .success(false)
                 .code(resultCode.value())
                 .message(resultCode.message())
-                .timestamp(LocalDateTime.now())
+                .timestamp(Instant.now())
                 .ext(ext)
                 .build();
     }
@@ -281,7 +282,7 @@ public class ResultEntity<T> {
                 .success(false)
                 .code(code)
                 .message(message)
-                .timestamp(LocalDateTime.now())
+                .timestamp(Instant.now())
                 .build();
     }
 
@@ -290,7 +291,7 @@ public class ResultEntity<T> {
                 .success(false)
                 .code(code)
                 .message(message)
-                .timestamp(LocalDateTime.now())
+                .timestamp(Instant.now())
                 .ext(ext)
                 .build();
     }

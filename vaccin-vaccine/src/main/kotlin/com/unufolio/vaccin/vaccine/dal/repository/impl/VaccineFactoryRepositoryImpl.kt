@@ -2,6 +2,7 @@ package com.unufolio.vaccin.vaccine.dal.repository.impl
 
 import com.baomidou.mybatisplus.core.conditions.Wrapper
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper
 import com.baomidou.mybatisplus.core.toolkit.Wrappers
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page
 import com.unufolio.common.page.IPage
@@ -24,8 +25,7 @@ class VaccineFactoryRepositoryImpl(val vaccineFactoryMapper: VaccineFactoryMappe
     }
 
     override fun delete(vaccineFactoryDO: VaccineFactoryDO): Int {
-        val queryWrapper = Wrappers.lambdaQuery<VaccineFactoryDO>()
-            .eq(VaccineFactoryDO::code, vaccineFactoryDO.code)
+        val queryWrapper = Wrappers.lambdaQuery<VaccineFactoryDO>().eq(VaccineFactoryDO::code, vaccineFactoryDO.code)
         return vaccineFactoryMapper.delete(queryWrapper)
     }
 
@@ -54,123 +54,58 @@ class VaccineFactoryRepositoryImpl(val vaccineFactoryMapper: VaccineFactoryMappe
         return vaccineFactoryMapper.exists(queryNotThisCodeWrapper(vaccineFactoryDO))
     }
 
-    private fun queryWrapper(vaccineFactoryDO: VaccineFactoryDO): LambdaQueryWrapper<VaccineFactoryDO> {
-        return Wrappers.lambdaQuery<VaccineFactoryDO>()
-            .eq(
-                Objects.nonNull(vaccineFactoryDO.code),
-                VaccineFactoryDO::code,
-                vaccineFactoryDO.code
-            )
-            .eq(
-                Objects.nonNull(vaccineFactoryDO.name),
-                VaccineFactoryDO::name,
-                vaccineFactoryDO.name
-            )
-            .eq(
-                Objects.nonNull(vaccineFactoryDO.nameEn),
-                VaccineFactoryDO::nameEn,
-                vaccineFactoryDO.nameEn
-            )
-            .eq(
-                Objects.nonNull(vaccineFactoryDO.namePinyin),
-                VaccineFactoryDO::namePinyin,
-                vaccineFactoryDO.namePinyin
-            )
-            .eq(
-                Objects.nonNull(vaccineFactoryDO.shortName),
-                VaccineFactoryDO::shortName,
-                vaccineFactoryDO.shortName
-            )
-            .eq(
-                Objects.nonNull(vaccineFactoryDO.shortNameEn),
-                VaccineFactoryDO::shortNameEn,
-                vaccineFactoryDO.shortNameEn
-            )
-            .eq(
-                Objects.nonNull(vaccineFactoryDO.shortNamePinyin),
-                VaccineFactoryDO::shortNamePinyin,
-                vaccineFactoryDO.shortNamePinyin
-            )
+    private fun queryWrapper(vaccineFactoryDO: VaccineFactoryDO): QueryWrapper<VaccineFactoryDO> {
+        return Wrappers.query<VaccineFactoryDO>().eq(
+            Objects.nonNull(vaccineFactoryDO.code), "code", vaccineFactoryDO.code
+        ).eq(
+            Objects.nonNull(vaccineFactoryDO.name), "name", vaccineFactoryDO.name
+        ).eq(
+            Objects.nonNull(vaccineFactoryDO.nameEn), "name_en", vaccineFactoryDO.nameEn
+        ).eq(
+            Objects.nonNull(vaccineFactoryDO.namePinyin), "name_pinyin", vaccineFactoryDO.namePinyin
+        ).eq(
+            Objects.nonNull(vaccineFactoryDO.shortName), "short_name", vaccineFactoryDO.shortName
+        ).eq(
+            Objects.nonNull(vaccineFactoryDO.shortNameEn), "short_name_en", vaccineFactoryDO.shortNameEn
+        ).eq(
+            Objects.nonNull(vaccineFactoryDO.shortNamePinyin), "short_name_pinyin", vaccineFactoryDO.shortNamePinyin
+        )
     }
 
-    private fun queryLikeWrapper(vaccineFactoryDO: VaccineFactoryDO): LambdaQueryWrapper<VaccineFactoryDO> {
-        return Wrappers.lambdaQuery<VaccineFactoryDO>()
-            .like(
-                Objects.nonNull(vaccineFactoryDO.code),
-                VaccineFactoryDO::code,
-                vaccineFactoryDO.code
-            ).or().like(
-                Objects.nonNull(vaccineFactoryDO.name),
-                VaccineFactoryDO::name,
-                vaccineFactoryDO.name
-            )
-            .or().like(
-                Objects.nonNull(vaccineFactoryDO.nameEn),
-                VaccineFactoryDO::nameEn,
-                vaccineFactoryDO.nameEn
-            )
-            .or().like(
-                Objects.nonNull(vaccineFactoryDO.namePinyin),
-                VaccineFactoryDO::namePinyin,
-                vaccineFactoryDO.namePinyin
-            )
-            .or().like(
-                Objects.nonNull(vaccineFactoryDO.shortName),
-                VaccineFactoryDO::shortName,
-                vaccineFactoryDO.shortName
-            )
-            .or().like(
-                Objects.nonNull(vaccineFactoryDO.shortNameEn),
-                VaccineFactoryDO::shortNameEn,
-                vaccineFactoryDO.shortNameEn
-            )
-            .or().like(
-                Objects.nonNull(vaccineFactoryDO.shortNamePinyin),
-                VaccineFactoryDO::shortNamePinyin,
-                vaccineFactoryDO.shortNamePinyin
-            )
+    private fun queryLikeWrapper(vaccineFactoryDO: VaccineFactoryDO): QueryWrapper<VaccineFactoryDO> {
+        return Wrappers.query<VaccineFactoryDO>().like(
+            Objects.nonNull(vaccineFactoryDO.code), "code", vaccineFactoryDO.code
+        ).or().like(
+            Objects.nonNull(vaccineFactoryDO.name), "name", vaccineFactoryDO.name
+        ).or().like(
+            Objects.nonNull(vaccineFactoryDO.nameEn), "name_en", vaccineFactoryDO.nameEn
+        ).or().like(
+            Objects.nonNull(vaccineFactoryDO.namePinyin), "name_pinyin", vaccineFactoryDO.namePinyin
+        ).or().like(
+            Objects.nonNull(vaccineFactoryDO.shortName), "short_name", vaccineFactoryDO.shortName
+        ).or().like(
+            Objects.nonNull(vaccineFactoryDO.shortNameEn), "short_name_nn", vaccineFactoryDO.shortNameEn
+        ).or().like(
+            Objects.nonNull(vaccineFactoryDO.shortNamePinyin), "short_name_pinyin", vaccineFactoryDO.shortNamePinyin
+        )
     }
 
-    private fun queryNotThisCodeWrapper(vaccineFactoryDO: VaccineFactoryDO): Wrapper<VaccineFactoryDO> {
-        return Wrappers.lambdaQuery<VaccineFactoryDO>()
-            .eq(
-                Objects.nonNull(vaccineFactoryDO.name),
-                VaccineFactoryDO::name,
-                vaccineFactoryDO.name
-            )
-            .eq(
-                Objects.nonNull(vaccineFactoryDO.nameEn),
-                VaccineFactoryDO::nameEn,
-                vaccineFactoryDO.nameEn
-            )
-            .eq(
-                Objects.nonNull(vaccineFactoryDO.namePinyin),
-                VaccineFactoryDO::namePinyin,
-                vaccineFactoryDO.namePinyin
-            )
-            .eq(
-                Objects.nonNull(vaccineFactoryDO.shortName),
-                VaccineFactoryDO::shortName,
-                vaccineFactoryDO.shortName
-            )
-            .eq(
-                Objects.nonNull(vaccineFactoryDO.shortNameEn),
-                VaccineFactoryDO::shortNameEn,
-                vaccineFactoryDO.shortNameEn
-            )
-            .eq(
-                Objects.nonNull(vaccineFactoryDO.shortNamePinyin),
-                VaccineFactoryDO::shortNamePinyin,
-                vaccineFactoryDO.shortNamePinyin
-            )
-            .not(
-                Objects.nonNull(vaccineFactoryDO.code)
-            ) {
-                it.eq(
-                    VaccineFactoryDO::code,
-                    vaccineFactoryDO.code
-                )
-            }
+    private fun queryNotThisCodeWrapper(vaccineFactoryDO: VaccineFactoryDO): QueryWrapper<VaccineFactoryDO> {
+        return Wrappers.query<VaccineFactoryDO>().eq(
+            Objects.nonNull(vaccineFactoryDO.name), "name", vaccineFactoryDO.name
+        ).eq(
+            Objects.nonNull(vaccineFactoryDO.nameEn), "name_en", vaccineFactoryDO.nameEn
+        ).eq(
+            Objects.nonNull(vaccineFactoryDO.namePinyin), "name_pinyin", vaccineFactoryDO.namePinyin
+        ).eq(
+            Objects.nonNull(vaccineFactoryDO.shortName), "short_name", vaccineFactoryDO.shortName
+        ).eq(
+            Objects.nonNull(vaccineFactoryDO.shortNameEn), "short_name_en", vaccineFactoryDO.shortNameEn
+        ).eq(
+            Objects.nonNull(vaccineFactoryDO.shortNamePinyin), "short_name_pinyin", vaccineFactoryDO.shortNamePinyin
+        ).not(Objects.nonNull(vaccineFactoryDO.code)) {
+            it.eq("code", vaccineFactoryDO.code)
+        }
     }
 
 

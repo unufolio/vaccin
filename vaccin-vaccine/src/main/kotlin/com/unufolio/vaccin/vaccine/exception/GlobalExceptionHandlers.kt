@@ -37,6 +37,6 @@ class GlobalExceptionHandlers {
     @ExceptionHandler(value = [NotFound::class])
     fun exceptionHandler(exception: Exception): ResultEntity<Void> {
         logger.error("Exception: ", exception)
-        return ResultEntity.failure(ResultEntity.failure());
+        return ResultEntity.failure()
     }
 }
