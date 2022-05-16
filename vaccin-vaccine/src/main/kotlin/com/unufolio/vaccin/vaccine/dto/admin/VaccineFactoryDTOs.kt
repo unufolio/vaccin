@@ -1,4 +1,4 @@
-package com.unufolio.vaccin.vaccine.dto
+package com.unufolio.vaccin.vaccine.dto.admin
 
 import jakarta.validation.constraints.NotBlank
 

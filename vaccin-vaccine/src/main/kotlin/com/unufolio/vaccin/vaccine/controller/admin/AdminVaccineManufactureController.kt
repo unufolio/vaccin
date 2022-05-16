@@ -2,8 +2,8 @@ package com.unufolio.vaccin.vaccine.controller.admin
 
 import com.unufolio.common.ResultEntity
 import com.unufolio.vaccin.vaccine.dataobject.VaccineManufactureDO
-import com.unufolio.vaccin.vaccine.dto.CreateVaccineFactoryRequestDTO
-import com.unufolio.vaccin.vaccine.dto.UpdateVaccineFactoryRequestDTO
+import com.unufolio.vaccin.vaccine.dto.admin.CreateVaccineFactoryRequestDTO
+import com.unufolio.vaccin.vaccine.dto.admin.UpdateVaccineFactoryRequestDTO
 import com.unufolio.vaccin.vaccine.objectmapping.VaccineFactoryMapping
 import com.unufolio.vaccin.vaccine.service.VaccineManufactureService
 import jakarta.validation.Valid

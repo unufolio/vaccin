@@ -10,39 +10,39 @@ class VaccineDO(
     /**
      * 疫苗编码（国标码）
      */
-    private var code: String? = null,
+    var code: String? = null,
     /**
      * 疫苗全称
      */
-    private var fullName: String? = null,
+    var fullName: String? = null,
     /**
      * 疫苗名称
      */
-    private var name: String? = null,
+    var name: String? = null,
     /**
      * 疫苗简称
      */
-    private var shortName: String? = null,
+    var shortName: String? = null,
     /**
      * 疫苗全称拼音
      */
-    private var fullNamePinyin: String? = null,
+    var fullNamePinyin: String? = null,
     /**
      * 疫苗名称拼音
      */
-    private var namePinyin: String? = null,
+    var namePinyin: String? = null,
     /**
      * 疫苗简称拼音
      */
-    private var shortNamePinyin: String? = null,
+    var shortNamePinyin: String? = null,
     /**
      * 疫苗类型，1:一类疫苗，2:二类疫苗
      */
-    private var classification: Int? = null,
+    var classification: Int? = null,
     /**
      * 疫苗简介
      */
-    private var instruction: String? = null,
+    var instruction: String? = null,
     /**
      * super
      */

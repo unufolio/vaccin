@@ -34,19 +34,19 @@ class VaccineInstanceDO(
     /**
      * 疫苗接种起始年龄，年月部分按月存储
      */
-    private var minMonth: Int? = null,
+    private var startMonth: Int? = null,
     /**
      * 疫苗接种截止年龄，年月部分按月存储
      */
-    private var maxMonth: Int? = null,
+    private var endMonth: Int? = null,
     /**
      * 疫苗接种起始年龄，周日部分按月存储
      */
-    private var minDay: Int? = null,
+    private var startDay: Int? = null,
     /**
      * 疫苗接种截止年龄，周日部分按月存储
      */
-    private var maxDay: Int? = null,
+    private var endDay: Int? = null,
     /**
      * 禁忌症
      */
@@ -69,6 +69,6 @@ class VaccineInstanceDO(
     isDeleted: Boolean? = null
 ) : BaseEntity(id, createTime, modifyTime, isDeleted) {
     override fun toString(): String {
-        return "VaccineInstanceDO(vaccineCode=$vaccineCode, dosageForm=$dosageForm, specification=$specification, unit=$unit, approvalNumber=$approvalNumber, packagingBoxImage=$packagingBoxImage, minMonth=$minMonth, maxMonth=$maxMonth, minDay=$minDay, maxDay=$maxDay, contraindications=$contraindications, inoculationInformation=$inoculationInformation, inoculationSite=$inoculationSite, adverseEffects=$adverseEffects)"
+        return "VaccineInstanceDO(vaccineCode=$vaccineCode, dosageForm=$dosageForm, specification=$specification, unit=$unit, approvalNumber=$approvalNumber, packagingBoxImage=$packagingBoxImage, minMonth=$startMonth, maxMonth=$endMonth, minDay=$startDay, maxDay=$endDay, contraindications=$contraindications, inoculationInformation=$inoculationInformation, inoculationSite=$inoculationSite, adverseEffects=$adverseEffects)"
     }
 }

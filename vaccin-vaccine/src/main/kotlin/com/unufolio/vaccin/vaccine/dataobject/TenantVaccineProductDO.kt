@@ -6,8 +6,14 @@ import java.time.Instant
  * @author Unufolio unufolio@gmail.com
  * @since 2022/05/16
  */
-class TenantVaccineInstanceDO(
+class TenantVaccineProductDO(
     var vaccineCode: String? = null,
+    var name: String? = null,
+    var description: String? = null,
+    var price: Long? = null,
+    var vaccinationProgram: String? = null,
+    var vaccineManufactureCode: String? = null,
+    var vaccineManufactureName: String? = null,
     tenantId: Long? = null,
     id: Long? = null,
     createTime: Instant? = null,
