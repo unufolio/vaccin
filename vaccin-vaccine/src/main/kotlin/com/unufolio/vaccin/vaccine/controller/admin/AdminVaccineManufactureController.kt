@@ -2,8 +2,8 @@ package com.unufolio.vaccin.vaccine.controller.admin
 
 import com.unufolio.common.ResultEntity
 import com.unufolio.vaccin.vaccine.dataobject.VaccineManufactureDO
-import com.unufolio.vaccin.vaccine.dto.admin.CreateVaccineFactoryRequestDTO
-import com.unufolio.vaccin.vaccine.dto.admin.UpdateVaccineFactoryRequestDTO
+import com.unufolio.vaccin.vaccine.dto.admin.CreateVaccineManufactureRequestDTO
+import com.unufolio.vaccin.vaccine.dto.admin.UpdateVaccineManufactureRequestDTO
 import com.unufolio.vaccin.vaccine.objectmapping.VaccineFactoryMapping
 import com.unufolio.vaccin.vaccine.service.VaccineManufactureService
 import jakarta.validation.Valid
@@ -20,7 +20,7 @@ class AdminVaccineManufactureController(
 
     @PostMapping()
     fun create(
-        @RequestBody @Valid requestDTO: CreateVaccineFactoryRequestDTO
+        @RequestBody @Valid requestDTO: CreateVaccineManufactureRequestDTO
     ): ResultEntity<Void> {
         val vaccineFactoryDO = VaccineFactoryMapping.fromCreateDTOToDataObject(requestDTO)
         return vaccineManufactureService.create(vaccineFactoryDO)
@@ -53,7 +53,7 @@ class AdminVaccineManufactureController(
     @PutMapping("{code}")
     fun update(
         @PathVariable("code") code: String,
-        @RequestBody requestDTO: UpdateVaccineFactoryRequestDTO
+        @RequestBody requestDTO: UpdateVaccineManufactureRequestDTO
     ): ResultEntity<Void> {
         val vaccineFactoryDO = VaccineFactoryMapping.fromUpdateDTOToDataObject(requestDTO)
         vaccineFactoryDO.code = code
