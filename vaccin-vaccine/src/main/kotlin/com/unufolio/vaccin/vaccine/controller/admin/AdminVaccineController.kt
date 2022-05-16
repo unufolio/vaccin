@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*
  * @author Unufolio unufolio@gmail.com
  * @since 2022/05/13
  */
-@RestController("admin/vaccine-factories")
+@RestController("admin/vaccine-manufactures")
 class AdminVaccineController(
     val vaccineService: VaccineService
 ) {

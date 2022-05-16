@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestController
  * @author Unufolio unufolio@gmail.com
  * @since 2022/03/29
  */
-@RestController("vaccine-factories")
+@RestController("vaccine-manufactures")
 class VaccineManufactureController(
     val vaccineManufactureService: VaccineManufactureService
 ) {
