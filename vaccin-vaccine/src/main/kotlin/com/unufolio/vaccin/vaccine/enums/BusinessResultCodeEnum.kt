@@ -6,15 +6,15 @@ import com.unufolio.common.IResultCode
  * @author Unufolio unufolio@gmail.com
  * @since 2022/05/13
  */
-enum class VaccineFactoryBusinessResultCodeEnum(private val value: String, private val message: String) : IResultCode {
-    VACCINE_FACTORY_CODE_EXIST("", "vaccine factory code exist"),
-    VACCINE_FACTORY_NAME_EXIST("", "vaccine factory name exist"),
-    VACCINE_FACTORY_NOT_EXIST("", "vaccine factory not exist"),
-    VACCINE_FACTORY_CREATE_FAILURE("", "vaccine factory create failure"),
-    VACCINE_FACTORY_DELETE_FAILURE("", "vaccine factory delete failure"),
-    VACCINE_FACTORY_UPDATE_FAILURE("", "vaccine factory update failure"),
-    VACCINE_FACTORY_ONLINE_FAILURE("", "vaccine factory online failure"),
-    VACCINE_FACTORY_OFFLINE_FAILURE("", "vaccine factory offline failure"),
+enum class VaccineManufactureBusinessResultCodeEnum(private val value: String, private val message: String) : IResultCode {
+    VACCINE_MANUFACTURE_CODE_EXIST("", "vaccine manufacture code exist"),
+    VACCINE_MANUFACTURE_NAME_EXIST("", "vaccine manufacture name exist"),
+    VACCINE_MANUFACTURE_NOT_EXIST("", "vaccine manufacture not exist"),
+    VACCINE_MANUFACTURE_CREATE_FAILURE("", "vaccine manufacture create failure"),
+    VACCINE_MANUFACTURE_DELETE_FAILURE("", "vaccine manufacture delete failure"),
+    VACCINE_MANUFACTURE_UPDATE_FAILURE("", "vaccine manufacture update failure"),
+    VACCINE_MANUFACTURE_ONLINE_FAILURE("", "vaccine manufacture online failure"),
+    VACCINE_MANUFACTURE_OFFLINE_FAILURE("", "vaccine manufacture offline failure"),
     ;
 
     override fun value(): String? {

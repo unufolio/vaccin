@@ -1,11 +1,11 @@
 package com.unufolio.vaccin.vaccine.controller.admin
 
 import com.unufolio.common.ResultEntity
-import com.unufolio.vaccin.vaccine.dataobject.VaccineFactoryDO
+import com.unufolio.vaccin.vaccine.dataobject.VaccineManufactureDO
 import com.unufolio.vaccin.vaccine.dto.CreateVaccineFactoryRequestDTO
 import com.unufolio.vaccin.vaccine.dto.UpdateVaccineFactoryRequestDTO
 import com.unufolio.vaccin.vaccine.objectmapping.VaccineFactoryMapping
-import com.unufolio.vaccin.vaccine.service.VaccineFactoryService
+import com.unufolio.vaccin.vaccine.service.VaccineManufactureService
 import jakarta.validation.Valid
 import org.springframework.web.bind.annotation.*
 
@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.*
  * @since 2022/04/28
  */
 @RestController("admin/vaccine-factories")
-class AdminVaccineFactoryController(
-    private val vaccineFactoryService: VaccineFactoryService,
+class AdminVaccineManufactureController(
+    private val vaccineManufactureService: VaccineManufactureService,
 ) {
 
     @PostMapping()
@@ -23,31 +23,31 @@ class AdminVaccineFactoryController(
         @RequestBody @Valid requestDTO: CreateVaccineFactoryRequestDTO
     ): ResultEntity<Void> {
         val vaccineFactoryDO = VaccineFactoryMapping.fromCreateDTOToDataObject(requestDTO)
-        return vaccineFactoryService.create(vaccineFactoryDO)
+        return vaccineManufactureService.create(vaccineFactoryDO)
     }
 
     @GetMapping("{code}")
-    fun retrieve(@PathVariable(value = "code", required = true) code: String): ResultEntity<VaccineFactoryDO> {
-        return vaccineFactoryService.retrieve(code)
+    fun retrieve(@PathVariable(value = "code", required = true) code: String): ResultEntity<VaccineManufactureDO> {
+        return vaccineManufactureService.retrieve(code)
     }
 
     @GetMapping("")
-    fun list(@PathVariable(value = "code", required = true) code: String): ResultEntity<VaccineFactoryDO> {
-        return vaccineFactoryService.retrieve(code)
+    fun list(@PathVariable(value = "code", required = true) code: String): ResultEntity<VaccineManufactureDO> {
+        return vaccineManufactureService.retrieve(code)
     }
 
     @PostMapping("{code}:offline")
     fun offline(
         @PathVariable("code") code: String
     ): ResultEntity<Void> {
-        return vaccineFactoryService.offline(code);
+        return vaccineManufactureService.offline(code);
     }
 
     @PostMapping("{code}:online")
     fun online(
         @PathVariable("code") code: String
     ): ResultEntity<Void> {
-        return vaccineFactoryService.online(code)
+        return vaccineManufactureService.online(code)
     }
 
     @PutMapping("{code}")
@@ -57,7 +57,7 @@ class AdminVaccineFactoryController(
     ): ResultEntity<Void> {
         val vaccineFactoryDO = VaccineFactoryMapping.fromUpdateDTOToDataObject(requestDTO)
         vaccineFactoryDO.code = code
-        return vaccineFactoryService.update(vaccineFactoryDO)
+        return vaccineManufactureService.update(vaccineFactoryDO)
     }
 
     @DeleteMapping("{code}")

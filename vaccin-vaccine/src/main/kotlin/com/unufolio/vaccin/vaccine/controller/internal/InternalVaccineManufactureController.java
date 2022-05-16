@@ -7,5 +7,5 @@ import org.springframework.web.bind.annotation.RestController;
  * @since 2022/04/28
  */
 @RestController("internal/vaccine-factories")
-public class InternalVaccineFactoryController {
+public class InternalVaccineManufactureController {
 }
