@@ -1,0 +1,24 @@
+{
+  "code": {
+    "language": "java"
+  },
+  "build": {
+    "jdk": {
+      "version": ""
+    },
+    "tools": {
+      "builder": "maven",
+      "maven": {
+        "version": "",
+        "settings": {}
+      },
+      "gradle": {
+        "version": "",
+        "settings": {}
+      },
+      "docker": {
+      }
+    },
+    "output": ""
+  }
+}

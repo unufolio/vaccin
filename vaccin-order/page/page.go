@@ -1,6 +1,6 @@
 package page
 
-type SimplePage[T interface{}] struct {
+type SimplePage[T any] struct {
 	PageSize int64 `json:"pageSize"`
 	PageNum  int64 `json:"pageNum"`
 	Total    int64 `json:"total"`
@@ -8,7 +8,7 @@ type SimplePage[T interface{}] struct {
 	Rows     []T   `json:"rows"`
 }
 
-type CursorPage[T interface{}] struct {
-	SimplePage
+type CursorPage[T any] struct {
+	SimplePage[T]
 	Cursor string `json:"cursor"`
 }
