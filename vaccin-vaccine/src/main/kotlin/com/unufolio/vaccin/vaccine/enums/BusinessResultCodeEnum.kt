@@ -6,21 +6,23 @@ import com.unufolio.common.IResultCode
  * @author Unufolio unufolio@gmail.com
  * @since 2022/05/13
  */
-enum class VaccineFactoryBusinessResultCodeEnum(private val value: String, private val message: String) : IResultCode {
-    VACCINE_FACTORY_CODE_EXIST("B4000001", "vaccine factory code exist"),
-    VACCINE_FACTORY_NAME_EXIST("B4000002", "vaccine factory name exist"),
-    VACCINE_FACTORY_NOT_EXIST("B4000003", "vaccine factory not exist"),
-    VACCINE_FACTORY_CREATE_FAILURE("B4000004", "vaccine factory create failure"),
-    VACCINE_FACTORY_DELETE_FAILURE("B4000005", "vaccine factory delete failure"),
-    VACCINE_FACTORY_UPDATE_FAILURE("B4000006", "vaccine factory update failure"),
+enum class VaccineManufactureBusinessResultCodeEnum(private val value: String, private val message: String) : IResultCode {
+    VACCINE_MANUFACTURE_CODE_EXIST("", "vaccine manufacture code exist"),
+    VACCINE_MANUFACTURE_NAME_EXIST("", "vaccine manufacture name exist"),
+    VACCINE_MANUFACTURE_NOT_EXIST("", "vaccine manufacture not exist"),
+    VACCINE_MANUFACTURE_CREATE_FAILURE("", "vaccine manufacture create failure"),
+    VACCINE_MANUFACTURE_DELETE_FAILURE("", "vaccine manufacture delete failure"),
+    VACCINE_MANUFACTURE_UPDATE_FAILURE("", "vaccine manufacture update failure"),
+    VACCINE_MANUFACTURE_ONLINE_FAILURE("", "vaccine manufacture online failure"),
+    VACCINE_MANUFACTURE_OFFLINE_FAILURE("", "vaccine manufacture offline failure"),
     ;
 
     override fun value(): String? {
-        return value
+        return null
     }
 
     override fun message(): String? {
-        return message
+        return null
     }
 }
 

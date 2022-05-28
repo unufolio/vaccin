@@ -6,10 +6,10 @@ import jakarta.validation.constraints.NotBlank
  * @author Unufolio unufolio@gmail.com
  * @since 2022/04/28
  */
-class CreateVaccineFactoryRequestDTO(
-    @get:NotBlank(message = "VACCINE_FACTORY_CODE_NOT_BLANK")
+class CreateVaccineManufactureRequestDTO(
+    @NotBlank(message = "VACCINE_MANUFACTURE_CODE_NOT_BLANK")
     val code: String? = null,
-    @get:NotBlank(message = "VACCINE_FACTORY_NAME_NOT_BLANK")
+    @NotBlank(message = "VACCINE_MANUFACTURE_NAME_NOT_BLANK")
     val name: String? = null,
     val nameEn: String? = null,
     val shortName: String? = null,
@@ -18,12 +18,12 @@ class CreateVaccineFactoryRequestDTO(
     val shortNamePinyin: String? = null
 ) {
     override fun toString(): String {
-        return "CreateVaccineFactoryRequestDTO(code=$code, name=$name, nameEn=$nameEn, shortName=$shortName, shortNameEn=$shortNameEn, namePinyin=$namePinyin, shortNamePinyin=$shortNamePinyin)"
+        return "CreateVaccineManufactureRequestDTO(code=$code, name=$name, nameEn=$nameEn, shortName=$shortName, shortNameEn=$shortNameEn, namePinyin=$namePinyin, shortNamePinyin=$shortNamePinyin)"
     }
 }
 
-class UpdateVaccineFactoryRequestDTO(
-    @get:NotBlank(message = "VACCINE_FACTORY_NAME_NOT_BLANK")
+class UpdateVaccineManufactureRequestDTO(
+    @NotBlank(message = "VACCINE_MANUFACTURE_NAME_NOT_BLANK")
     val name: String? = null,
     val nameEn: String? = null,
     val shortName: String? = null,
@@ -32,6 +32,6 @@ class UpdateVaccineFactoryRequestDTO(
     val shortNamePinyin: String? = null
 ) {
     override fun toString(): String {
-        return "UpdateVaccineFactoryRequestDTO(name=$name, nameEn=$nameEn, shortName=$shortName, shortNameEn=$shortNameEn, namePinyin=$namePinyin, shortNamePinyin=$shortNamePinyin)"
+        return "UpdateVaccineManufactureRequestDTO(name=$name, nameEn=$nameEn, shortName=$shortName, shortNameEn=$shortNameEn, namePinyin=$namePinyin, shortNamePinyin=$shortNamePinyin)"
     }
 }

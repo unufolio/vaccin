@@ -8,8 +8,8 @@ import com.unufolio.common.IResultCode
  */
 enum class ParamValidationResultCodeEnum(private val value: String, private val message: String) : IResultCode {
 
-    VACCINE_FACTORY_CODE_NOT_BLANK("4000001", "vaccine factory code not blank"),
-    VACCINE_FACTORY_NAME_NOT_BLANK("4000002", "vaccine factory name not blank"),
+    VACCINE_MANUFACTURE_CODE_NOT_BLANK("", "vaccine manufacture code not blank"),
+    VACCINE_MANUFACTURE_NAME_NOT_BLANK("", "vaccine manufacture name not blank"),
 
     ;
 

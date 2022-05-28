@@ -9,8 +9,7 @@ import org.springframework.web.bind.annotation.*
  * @author Unufolio unufolio@gmail.com
  * @since 2022/05/13
  */
-@RestController()
-@RequestMapping("admin/vaccines")
+@RestController("admin/vaccine-manufactures")
 class AdminVaccineController(
     val vaccineService: VaccineService
 ) {
@@ -32,12 +31,12 @@ class AdminVaccineController(
         return resultEntity
     }
 
-    @PostMapping("{code}:online")
+    @PostMapping("{code}：online")
     fun online(@PathVariable("code") code: String) {
         vaccineService.delete()
     }
 
-    @PostMapping("{code}:offline")
+    @PostMapping("{code}：offline")
     fun offline(@PathVariable("code") code: String) {
         vaccineService.delete()
     }

@@ -7,8 +7,8 @@ import java.time.Instant
  * @author Unufolio unufolio@gmail.com
  * @since 2022/03/29
  */
-@TableName("vaccine_factory")
-class VaccineFactoryDO(
+@TableName("vaccine_manufacture")
+class VaccineManufactureDO(
     /**
      * 编码
      */

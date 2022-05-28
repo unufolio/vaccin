@@ -1,7 +1,7 @@
 package com.unufolio.vaccin.vaccine.dal.repository
 
 import com.unufolio.common.page.IPage
-import com.unufolio.vaccin.vaccine.dataobject.VaccineFactoryDO
+import com.unufolio.vaccin.vaccine.dataobject.VaccineManufactureDO
 
 /**
  * @author Unufolio unufolio@gmail.com
@@ -9,21 +9,21 @@ import com.unufolio.vaccin.vaccine.dataobject.VaccineFactoryDO
  */
 interface VaccineFactoryRepository {
 
-    fun save(vaccineFactoryDO: VaccineFactoryDO): Int
+    fun save(vaccineManufactureDO: VaccineManufactureDO): Int
 
-    fun delete(vaccineFactoryDO: VaccineFactoryDO): Int
+    fun delete(vaccineManufactureDO: VaccineManufactureDO): Int
 
-    fun update(vaccineFactoryDO: VaccineFactoryDO): Int
+    fun update(vaccineManufactureDO: VaccineManufactureDO): Int
 
-    fun selectFirstByCode(code: String): VaccineFactoryDO?
+    fun selectFirstByCode(code: String): VaccineManufactureDO?
 
-    fun selectFirst(vaccineFactoryDO: VaccineFactoryDO): VaccineFactoryDO?
+    fun selectFirst(vaccineManufactureDO: VaccineManufactureDO): VaccineManufactureDO?
 
-    fun exist(vaccineFactoryDO: VaccineFactoryDO): Boolean
+    fun exist(vaccineManufactureDO: VaccineManufactureDO): Boolean
 
-    fun existNotThisCode(vaccineFactoryDO: VaccineFactoryDO): Boolean
+    fun existNotThisCode(vaccineManufactureDO: VaccineManufactureDO): Boolean
 
-    fun list(vaccineFactoryDO: VaccineFactoryDO): List<VaccineFactoryDO>
+    fun list(vaccineManufactureDO: VaccineManufactureDO): List<VaccineManufactureDO>
 
-    fun page(vaccineFactoryDO: VaccineFactoryDO): IPage<VaccineFactoryDO>
+    fun page(vaccineManufactureDO: VaccineManufactureDO): IPage<VaccineManufactureDO>
 }
